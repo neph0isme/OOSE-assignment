@@ -2,5 +2,5 @@
 
 public class LoginPage {
  //ni efdi
-    //ni kama ooooooooo
+    //ni kama
 }
