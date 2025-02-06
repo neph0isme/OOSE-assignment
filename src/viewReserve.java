@@ -1,8 +1,4 @@
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextArea;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,8 +8,8 @@ public class viewReserve extends JFrame {
     public viewReserve() {
         setTitle("View Reservation");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new GridLayout(5, 2, 5, 5));
-
+        setSize(600, 300);
+        setLocationRelativeTo(null); // Centers the window on the screen
         getContentPane().setLayout(null);
 
         JLabel lblNewLabel = new JLabel("View Reservation");
@@ -46,47 +42,41 @@ public class viewReserve extends JFrame {
         btnCancel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Navigate to cancelReserve.java
                 new cancelReserve().setVisible(true);
-                dispose(); // Close the current window
+                dispose();
             }
         });
 
         btnEdit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Navigate to editReservation.java
                 new editReservation().setVisible(true);
-                dispose(); // Close the current window
+                dispose();
             }
         });
 
         btnRate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Navigate to rateReserve.java
                 new rateReserve().setVisible(true);
-                dispose(); // Close the current window
+                dispose();
             }
         });
 
         btnBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Navigate back to the previous screen (assuming it's MainMenu.java)
                 new viewRestaurant().setVisible(true);
-                dispose(); // Close the current window
+                dispose();
             }
         });
     }
 
     public static void main(String[] args) {
-        // Create and display the viewReserve window
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
                     viewReserve frame = new viewReserve();
-                    frame.setSize(600, 300);
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
