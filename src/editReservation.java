@@ -9,6 +9,8 @@ public class editReservation extends JFrame{
 	    setSize(600, 300);
 	    setLocationRelativeTo(null); // Centers the window on the screen
 	    getContentPane().setLayout(null);
+	    
+	    
 	}
 	
 	
