@@ -1,4 +1,7 @@
+import java.awt.*;
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
-public class editReservation {
+class editReservation extends JFrame{
 
 }
