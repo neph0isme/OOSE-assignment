@@ -1,5 +1,6 @@
 import java.awt.CardLayout;
 import java.awt.Font;
+import java.awt.GridLayout;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -12,10 +13,14 @@ import javax.swing.table.DefaultTableModel;
 public class viewReservation extends JFrame{
 	public JFrame frame;
 	public JPanel mainPanel;
-	public CardLayout cardLayout;
-    public DefaultTableModel tableModelins;
+	 public CardLayout cardLayout;
+    
 	
 	public viewReservation() {
+		setTitle("View Reservation");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //getContentPane().setLayout(new GridLayout(5, 2, 5, 5));
+		
 		getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("View Reservation");
@@ -44,12 +49,11 @@ public class viewReservation extends JFrame{
 		textArea.setBounds(64, 131, 468, 22);
 		getContentPane().add(textArea);
 		
-		
-		frame = new JFrame("View Reservation");
-        frame.setSize(600, 400);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        mainPanel = new JPanel(new CardLayout());
 	}
 }
+
+public static void main(String[] args) {
+	new viewReservation();
+}
+
 
