@@ -1,4 +1,7 @@
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
 
 public class rateReserve extends JFrame {
@@ -6,7 +9,7 @@ public class rateReserve extends JFrame {
     public rateReserve() {
         setTitle("Reservation Rating");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(220, 400); // Set the size of the window
+        setSize(220, 426); // Set the size of the window
         setLocationRelativeTo(null); // Center the window on the screen
         getContentPane().setLayout(null);
         
@@ -57,6 +60,18 @@ public class rateReserve extends JFrame {
         lblRestaurantName.setHorizontalAlignment(SwingConstants.CENTER);
         lblRestaurantName.setBounds(6, 105, 192, 14);
         getContentPane().add(lblRestaurantName);
+        
+        JButton btnBack = new JButton("Back");
+        btnBack.setBounds(60, 353, 89, 23);
+        getContentPane().add(btnBack);
+        
+        btnBack.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new viewReserve().setVisible(true);
+                dispose();
+            }
+        });
     }
     
     @Override
