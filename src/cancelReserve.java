@@ -23,6 +23,7 @@ public class cancelReserve extends JFrame {
         getContentPane().add(btnYes);
 
         JButton btnNo = new JButton("No");
+        btnNo.setFont(new Font("Tahoma", Font.PLAIN, 11));
         btnNo.setBounds(305, 194, 128, 40);
         getContentPane().add(btnNo);
 
