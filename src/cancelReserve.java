@@ -31,7 +31,7 @@ public class cancelReserve extends JFrame {
         btnYes.addActionListener(e -> {
             JOptionPane.showMessageDialog(this, "Your booking has been canceled.");
             dispose(); // Close the current window
-            new LoginPage().setVisible(true); // Navigate back to the main menu
+            new CustomerLogin().setVisible(true); // Navigate back to the main menu
         });
 
         btnNo.addActionListener(e -> {
