@@ -77,7 +77,7 @@ public class editReservation extends JFrame{
 	    btnBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new viewReserve().setVisible(true);
+                new viewReserve(null).setVisible(true);
                 dispose();
             }
         });

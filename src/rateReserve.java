@@ -5,9 +5,8 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class rateReserve extends JFrame {
-    
+	
     public rateReserve() {
-    	CustomerController customerController;
     	
         setTitle("Reservation Rating");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -70,7 +69,8 @@ public class rateReserve extends JFrame {
         btnBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new viewReserve(customerController).setVisible(true);
+                CustomerController customerController = new CustomerController(null, null);
+				new viewReserve(customerController).setVisible(true);
                 dispose();
             }
         });

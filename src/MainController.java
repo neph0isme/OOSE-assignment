@@ -1,8 +1,8 @@
 
 
 public class MainController {
-	private StudentController studentController;
-	private LecturerController lecturerController;
+	private CustomerController customerController;
+	private StaffController staffController;
 	private Database database;
 
 	private LoginView loginView;
@@ -10,8 +10,8 @@ public class MainController {
 	
 	public MainController() {
 		this.database = new Database();
-		this.studentController = new StudentController(this, database);
-		this.lecturerController = new LecturerController(this, database);
+		this.customerController = new CustomerController(this, database);
+		this.StaffController = new LecturerController(this, database);
 
 		loginView = new LoginView(this);
 		errorLoginView = new ErrorLoginView(this);
