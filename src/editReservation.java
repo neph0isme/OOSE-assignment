@@ -10,10 +10,11 @@ public class editReservation extends JFrame{
 	private JTextField textName;
 	private JTextField textNumber;
 	private JTextField textField_1;
+	
 	public editReservation() {
 		setTitle("Edit Reservation Details");
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    setSize(700, 500);
+	    setSize(600, 265);
 	    setLocationRelativeTo(null); // Centers the window on the screen
 	    getContentPane().setLayout(null);
 	    
@@ -23,51 +24,55 @@ public class editReservation extends JFrame{
 	    
 	    JLabel lblEditPax = new JLabel("Edit Pax Number:");
 	    lblEditPax.setFont(new Font("Tahoma", Font.PLAIN, 16));
-	    lblEditPax.setBounds(53, 89, 210, 14);
+	    lblEditPax.setBounds(10, 51, 210, 14);
 	    getContentPane().add(lblEditPax);
 	    
 	    textField = new JTextField();
-	    textField.setBounds(261, 83, 43, 20);
+	    textField.setBounds(218, 45, 43, 20);
 	    getContentPane().add(textField);
 	    textField.setColumns(10);
 	    
 	    JLabel lblPaxNumber = new JLabel("Pax");
 	    lblPaxNumber.setFont(new Font("Tahoma", Font.PLAIN, 16));
-	    lblPaxNumber.setBounds(311, 86, 46, 14);
+	    lblPaxNumber.setBounds(268, 48, 46, 14);
 	    getContentPane().add(lblPaxNumber);
 	    
 	    JLabel lblName = new JLabel("Name:");
 	    lblName.setFont(new Font("Tahoma", Font.PLAIN, 16));
-	    lblName.setBounds(53, 115, 210, 14);
+	    lblName.setBounds(10, 77, 210, 14);
 	    getContentPane().add(lblName);
 	    
 	    textName = new JTextField();
 	    textName.setFont(new Font("Tahoma", Font.PLAIN, 16));
-	    textName.setBounds(261, 114, 352, 20);
+	    textName.setBounds(218, 76, 352, 20);
 	    getContentPane().add(textName);
 	    textName.setColumns(10);
 	    
 	    JLabel lblNumber = new JLabel("Number Phone:");
 	    lblNumber.setFont(new Font("Tahoma", Font.PLAIN, 16));
-	    lblNumber.setBounds(53, 143, 210, 14);
+	    lblNumber.setBounds(10, 105, 210, 14);
 	    getContentPane().add(lblNumber);
 	    
 	    textNumber = new JTextField();
 	    textNumber.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	    textNumber.setColumns(10);
-	    textNumber.setBounds(261, 142, 352, 20);
+	    textNumber.setBounds(218, 104, 352, 20);
 	    getContentPane().add(textNumber);
 	    
 	    JLabel lblEmail = new JLabel("Email:");
 	    lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 16));
-	    lblEmail.setBounds(53, 169, 210, 14);
+	    lblEmail.setBounds(10, 131, 210, 14);
 	    getContentPane().add(lblEmail);
 	    
 	    textField_1 = new JTextField();
 	    textField_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	    textField_1.setColumns(10);
-	    textField_1.setBounds(261, 168, 352, 20);
+	    textField_1.setBounds(218, 130, 352, 20);
 	    getContentPane().add(textField_1);
+	    
+	    JButton btnNewButton = new JButton("New button");
+	    btnNewButton.setBounds(481, 185, 89, 23);
+	    getContentPane().add(btnNewButton);
 	    
 	    btnBack.addActionListener(new ActionListener() {
             @Override
@@ -77,7 +82,18 @@ public class editReservation extends JFrame{
             }
         });
 	    
-	    
-	    
 	}
+	
+	public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    editReservation frame = new editReservation();
+                    frame.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
 }

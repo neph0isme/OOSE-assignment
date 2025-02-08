@@ -4,8 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class viewReserve extends JFrame {
-
-    public viewReserve() {
+	private static CustomerController customerController;
+	
+    public viewReserve(CustomerController customerController) {
+    	this.customerController = customerController;
+    	
         setTitle("View Reservation");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(600, 300);
@@ -66,7 +69,7 @@ public class viewReserve extends JFrame {
         btnBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new viewRestaurant().setVisible(true);
+                new UserLoginAs().setVisible(true);
                 dispose();
             }
         });
@@ -76,7 +79,7 @@ public class viewReserve extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    viewReserve frame = new viewReserve();
+                    viewReserve frame = new viewReserve(customerController);
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
