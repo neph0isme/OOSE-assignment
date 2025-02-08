@@ -5,7 +5,7 @@ public class CustomerController extends userController {
 	private viewReserve viewReserve;
 	
 	public CustomerController(MainController mainController, Database database) {
-		super(mainController, database);
+		super();
 		
 		viewReserve = new viewReserve(this);
 	}
