@@ -22,7 +22,7 @@ public class PaxPage extends JFrame {
         backButton.setPreferredSize(new Dimension(80, 30)); 
         backButtonPanel.add(backButton); 
         
-        JPanel formPanel = new JPanel(new GridLayout(5, 2, 5, 5)); // 5 rows for the form
+        JPanel formPanel = new JPanel(new GridLayout(5, 2, 5, 5)); 
         JLabel paxLabel = new JLabel("Choose pax: ");
         paxField = new JTextField(5);
         JLabel nameLabel = new JLabel("Name: ");
@@ -68,7 +68,7 @@ public class PaxPage extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 PaxPage.this.dispose();
-                new ChooseDateTime();
+                new ChooseDateTimePage();
             }
         });
 
