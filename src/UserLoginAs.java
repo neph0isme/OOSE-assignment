@@ -43,15 +43,25 @@ public class UserLoginAs extends JFrame {
 		contentPane.add(lbltitle);
 		
 		JButton btnstaff = new JButton("Restaurant Staff");
-		btnstaff.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnstaff.setBounds(244, 223, 136, 23);
 		contentPane.add(btnstaff);
 		
 		JButton btncust = new JButton("Customer");
 		btncust.setBounds(244, 279, 136, 23);
 		contentPane.add(btncust);
+		
+		btnstaff.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new RestStaffLogin().setVisible(true);
+				dispose();
+			}
+		});
+		
+		btncust.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new CustomerLogin().setVisible(true);
+				dispose();
+			}
+		});
 	}
 }
