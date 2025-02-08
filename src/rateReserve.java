@@ -7,6 +7,8 @@ import javax.swing.*;
 public class rateReserve extends JFrame {
     
     public rateReserve() {
+    	CustomerController customerController;
+    	
         setTitle("Reservation Rating");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(220, 426); // Set the size of the window
@@ -68,7 +70,7 @@ public class rateReserve extends JFrame {
         btnBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new viewReserve().setVisible(true);
+                new viewReserve(customerController).setVisible(true);
                 dispose();
             }
         });
