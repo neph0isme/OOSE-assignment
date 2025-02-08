@@ -10,12 +10,19 @@ public class PaxPage extends JFrame {
     private JTextField phoneField;
     private JTextField emailField;
     private JButton confirmButton;
+    private JButton backButton; 
 
     public PaxPage() {
         setTitle("Pax Page");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new GridLayout(5, 2, 5, 5));
+        setLayout(new BorderLayout());
 
+        JPanel backButtonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        backButton = new JButton("Back");
+        backButton.setPreferredSize(new Dimension(80, 30)); 
+        backButtonPanel.add(backButton); 
+        
+        JPanel formPanel = new JPanel(new GridLayout(5, 2, 5, 5)); // 5 rows for the form
         JLabel paxLabel = new JLabel("Choose pax: ");
         paxField = new JTextField(5);
         JLabel nameLabel = new JLabel("Name: ");
@@ -26,22 +33,23 @@ public class PaxPage extends JFrame {
         emailField = new JTextField(20);
         confirmButton = new JButton("Confirm");
 
-        
-        add(paxLabel);
-        add(paxField);
-        add(nameLabel);
-        add(nameField);
-        add(phoneLabel);
-        add(phoneField);
-        add(emailLabel);
-        add(emailField);
-        add(new JLabel()); 
-        add(confirmButton);
+        formPanel.add(paxLabel);
+        formPanel.add(paxField);
+        formPanel.add(nameLabel);
+        formPanel.add(nameField);
+        formPanel.add(phoneLabel);
+        formPanel.add(phoneField);
+        formPanel.add(emailLabel);
+        formPanel.add(emailField);
+        formPanel.add(new JLabel()); 
+        formPanel.add(confirmButton);
 
+        add(backButtonPanel, BorderLayout.NORTH); 
+        add(formPanel, BorderLayout.CENTER); 
+        
         confirmButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
                 String pax = paxField.getText();
                 String name = nameField.getText();
                 String phone = phoneField.getText();
@@ -52,6 +60,15 @@ public class PaxPage extends JFrame {
                         "Name: " + name + "\n" +
                         "Phone: " + phone + "\n" +
                         "Email: " + email);
+            }
+        });
+
+        // Action listener for the back button
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PaxPage.this.dispose();
+                new ChooseDateTime();
             }
         });
 
