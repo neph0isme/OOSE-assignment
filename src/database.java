@@ -19,7 +19,7 @@ public class database {
     Customer c2 = new Customer("zulanep", "Zulhanif Ramli", "zul@gmail.com", "0165523433", "110404");
     
     /*Restaurant info:
-    (nama rest, type of cuisine, location, numofpax)*/
+    (nama rest, type of cuisine, location, numofpax, rating)*/
     
     /*Cust info:
      (nama, no phone, email)*/
