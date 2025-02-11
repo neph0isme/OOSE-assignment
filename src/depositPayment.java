@@ -44,7 +44,11 @@ public class depositPayment extends JFrame {
         backButton.setForeground(Color.WHITE);
         backButton.setBackground(Color.RED);
         backButton.setFocusPainted(false);
-        backButton.addActionListener(e -> frame.dispose());
+        backButton.addActionListener(e -> {
+            new PaxPage().setVisible(true); 
+            dispose(); 
+        });
+        getContentPane().add(backButton);
 
         Component horizontalGlue = Box.createHorizontalGlue();
 
