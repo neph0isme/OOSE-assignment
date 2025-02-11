@@ -8,12 +8,14 @@ public class selectPicture extends JFrame {
     private JTextField txtRatingCuisine;
 
     public selectPicture() {
+    	getContentPane().setBackground(new Color(128, 255, 255));
         getContentPane().setLayout(null);
 
         JLabel lblNewLabel = new JLabel("PIC1");
         lblNewLabel.setIcon(new ImageIcon("C:\\Users\\ASUS\\OneDrive - Universiti Kebangsaan Malaysia\\Pictures\\saje.jpg"));
         lblNewLabel.setBounds(40, 108, 343, 87);
         getContentPane().add(lblNewLabel);
+		setLocationRelativeTo(null);
 
         JLabel lblNewLabel_1 = new JLabel("PIC2");
         lblNewLabel_1.setBounds(40, 213, 343, 87);
