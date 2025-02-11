@@ -34,7 +34,9 @@ public class PaxPage extends JFrame {
         phoneField = new JTextField(20);
         JLabel emailLabel = new JLabel("Email: ");
         emailField = new JTextField(20);
+        
         confirmButton = new JButton("Confirm");
+        confirmButton.setPreferredSize(new Dimension(100, 25)); // Set preferred size for the confirm button
 
         formPanel.add(paxLabel);
         formPanel.add(paxField);
@@ -44,8 +46,12 @@ public class PaxPage extends JFrame {
         formPanel.add(phoneField);
         formPanel.add(emailLabel);
         formPanel.add(emailField);
-        formPanel.add(new JLabel()); 
-        formPanel.add(confirmButton);
+        
+        // Create a panel for the confirm button
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        buttonPanel.add(confirmButton);
+        formPanel.add(new JLabel()); // Empty label for spacing
+        formPanel.add(buttonPanel); // Add button panel to form
 
         add(backButtonPanel, BorderLayout.NORTH); 
         add(formPanel, BorderLayout.CENTER); 
@@ -58,7 +64,6 @@ public class PaxPage extends JFrame {
                 String phone = phoneField.getText();
                 String email = emailField.getText();
                 
-
                 JOptionPane.showMessageDialog(PaxPage.this, "Booking Confirmed!\n" +
                         "Pax: " + pax + "\n" +
                         "Name: " + name + "\n" +
