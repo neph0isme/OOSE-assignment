@@ -69,7 +69,11 @@ public class UpdRestDet extends JFrame {
         JLabel ratingLabel = new JLabel("Rating (Out of 5):");
         ratingLabel.setBounds(50, 230, 120, 25);
         contentPane.add(ratingLabel);
-        
+
+        JLabel lblrating = new JLabel(String.valueOf(restaurant.getRating())); // Display actual rating
+        lblrating.setBounds(180, 235, 49, 14);
+        contentPane.add(lblrating);
+
         JButton saveButton = new JButton("Save");
         saveButton.setBounds(150, 300, 100, 30);
         contentPane.add(saveButton);
@@ -78,39 +82,37 @@ public class UpdRestDet extends JFrame {
         cancelButton.setBounds(270, 300, 100, 30);
         cancelButton.addActionListener(e -> dispose());
         contentPane.add(cancelButton);
-        
-        JLabel lblrating = new JLabel(String.valueOf(restaurant.getRating())); // Display actual rating
-        lblrating.setBounds(180, 235, 49, 14);
-        contentPane.add(lblrating);
-        
-        
+
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 saveRestaurantDetails();
             }
         });
-        
+
         cancelButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new staffView(db, restaurant.getStaffID()).setVisible(true);
-                
+                dispose();
             }
         });
     }
 
     private void saveRestaurantDetails() {
+        // Update the restaurant object with new details
         restaurant.setName(restaurantNameField.getText());
         restaurant.setCuisineType(cuisineTypeField.getText());
         restaurant.setLocation(locationField.getText());
         restaurant.setRestPax((int) paxSpinner.getValue());
-        //restaurant.setRating((double) ratingSpinner.getValue());
 
+        // Update the restaurant in the database
         db.updateRestaurant(restaurant);
-        //System.out.println(restaurant.getRating());
+
+        // Show success message
         JOptionPane.showMessageDialog(this, "Restaurant details updated successfully!");
     }
+}
 
     /*
     public static void main(String[] args) {
@@ -126,4 +128,3 @@ public class UpdRestDet extends JFrame {
             }
         });
     } */
-}
