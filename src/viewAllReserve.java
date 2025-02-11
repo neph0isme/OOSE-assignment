@@ -52,7 +52,7 @@ public class viewAllReserve extends JFrame {
         btnBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new staffView().setVisible(true);
+                new staffView(db).setVisible(true);
                 dispose();
             }
         });

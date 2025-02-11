@@ -4,6 +4,8 @@ import java.awt.event.ActionListener;
 
 public class depositPayment extends JFrame {
     public depositPayment() {
+    	//this.db = 
+    	
     	setBackground(new Color(128, 255, 255));
         // Set up frame properties
         setTitle("Deposit Payment");
