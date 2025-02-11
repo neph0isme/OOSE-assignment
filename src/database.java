@@ -120,8 +120,24 @@ public class database {
             }
         }
         return null; // If no restaurant found
+    
+    
+    
+    }
+    
+    public Customer getCustomerByUsername(String username) {
+        
+    	for (Customer c : customerList) {  // Assuming customers is an ArrayList<Customer>
+            if (c.getUserID().equals(username)) {
+                return c; // Return the matched customer
+            }
+        }
+        return null; // Return null if not found
     }
 }
+
+
+
 
 
 /*

@@ -120,9 +120,11 @@ public class CustomerLogin extends JFrame {
             String username = txt_username.getText();
             String password = txt_pass.getText();
 
+            Customer loggedInCustomer = db.getCustomerByUsername(username);
+            
             if (db.validateCustomerLogin(username, password)) {
                 JOptionPane.showMessageDialog(this, "Login Successful");
-                new custOption(db.getCustomers()).setVisible(true);
+                new custOption(loggedInCustomer).setVisible(true);
                 dispose();
             } else {
                 JOptionPane.showMessageDialog(this, "Login Unsuccessfull");

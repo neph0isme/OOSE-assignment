@@ -5,7 +5,13 @@ import java.awt.event.ActionListener;
 
 public class custOption extends JFrame {
 	
+	 private CustomerController customerController;
+	
     public custOption(Customer customer) {
+    	
+    	//Customer firstCustomer = customers.isEmpty() ? null : customers.get(0); // Get first customer or null
+        //String customerName = (firstCustomer != null) ? firstCustomer.getName() : "Guest";
+
         getContentPane().setBackground(new Color(128, 255, 255));
         setTitle("Pick Your Options");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -41,9 +47,11 @@ public class custOption extends JFrame {
 
         // View Reserve Button
         btnViewReserve.addActionListener(new ActionListener() {
-            @Override
+           
+
+			@Override
             public void actionPerformed(ActionEvent e) {
-                new viewReserve(null).setVisible(true);
+                new viewReserve(customerController, customer).setVisible(true);
                 dispose();
             }
         });
