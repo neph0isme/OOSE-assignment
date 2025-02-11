@@ -6,10 +6,10 @@ public class UpdRestDet extends JFrame {
 
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
-    private JTextField restaurantNameField; // For "nama rest"
-    private JTextField cuisineTypeField; // For "type of cuisine"
-    private JTextField locationField; // For "location"
-    private JSpinner paxSpinner; // For "numofpax"
+    private JTextField restaurantNameField;
+    private JTextField cuisineTypeField;
+    private JTextField locationField;
+    private JSpinner paxSpinner;
     private JLabel ratingLabel; // JLabel for displaying rating
 
     /**
@@ -49,8 +49,8 @@ public class UpdRestDet extends JFrame {
         gbc.anchor = GridBagConstraints.CENTER;
         contentPane.add(titleLabel, gbc);
 
-        // Restaurant Name (nama rest)
-        JLabel restaurantNameLabel = new JLabel("Nama Rest:");
+        // Restaurant Name
+        JLabel restaurantNameLabel = new JLabel("Restaurant Name:");
         gbc.gridx = 0;
         gbc.gridy = 1;
         gbc.gridwidth = 1;
@@ -84,8 +84,8 @@ public class UpdRestDet extends JFrame {
         gbc.gridy = 3;
         contentPane.add(locationField, gbc);
 
-        // Number of Pax (numofpax)
-        JLabel paxLabel = new JLabel("Num of Pax:");
+        // Number of Pax
+        JLabel paxLabel = new JLabel("Number of Pax:");
         gbc.gridx = 0;
         gbc.gridy = 4;
         contentPane.add(paxLabel, gbc);
