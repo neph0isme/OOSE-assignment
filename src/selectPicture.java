@@ -10,7 +10,7 @@ public class selectPicture extends JFrame {
         getContentPane().setLayout(null);
 
         // Load and resize the first image
-        ImageIcon originalIcon1 = new ImageIcon("C:\\Users\\ASUS\\OneDrive - Universiti Kebangsaan Malaysia\\Pictures\\PASTA GUI.png");
+        ImageIcon originalIcon1 = new ImageIcon("C:\\Users\\Lenovo\\git\\OOSE-assignment\\pictures\\pasta.jpg");
         Image img1 = originalIcon1.getImage();
         Image resizedImg1 = img1.getScaledInstance(294, 100, Image.SCALE_SMOOTH);
         ImageIcon resizedIcon1 = new ImageIcon(resizedImg1);
@@ -21,7 +21,7 @@ public class selectPicture extends JFrame {
         setLocationRelativeTo(null);
 
         // Load and resize the second image
-        ImageIcon originalIcon2 = new ImageIcon("C:\\Users\\ASUS\\OneDrive - Universiti Kebangsaan Malaysia\\Pictures\\sushii.png"); // Change path
+        ImageIcon originalIcon2 = new ImageIcon("C:\\Users\\Lenovo\\git\\OOSE-assignment\\pictures\\sushi.jpg"); // Change path
         Image img2 = originalIcon2.getImage();
         Image resizedImg2 = img2.getScaledInstance(294, 100, Image.SCALE_SMOOTH);
         ImageIcon resizedIcon2 = new ImageIcon(resizedImg2);

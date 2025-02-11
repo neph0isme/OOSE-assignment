@@ -3,7 +3,9 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class depositPayment extends JFrame {
-    public depositPayment() {
+    private Customer customer;
+
+	public depositPayment() {
     	//this.db = 
     	
     	setBackground(new Color(128, 255, 255));
@@ -73,7 +75,7 @@ public class depositPayment extends JFrame {
 
         doneButton.addActionListener(e -> {
             JOptionPane.showMessageDialog(this, "Reservation Details - Customer information has been saved.", "Reservation Confirmation", JOptionPane.INFORMATION_MESSAGE);
-            new custOption().setVisible(true);  // Navigate to custOption interface
+            new custOption(customer).setVisible(true);  // Navigate to custOption interface
             dispose();  // Close PaxPage
         });
 
