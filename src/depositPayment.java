@@ -19,8 +19,12 @@ public class depositPayment extends JFrame {
         setSize(400, 450);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         setLayout(new BorderLayout());
 >>>>>>> d0ada5af7384647071652e693ba37d9d1e000070
+=======
+        getContentPane().setLayout(new BorderLayout());
+>>>>>>> Stashed changes
 =======
         getContentPane().setLayout(new BorderLayout());
 >>>>>>> Stashed changes
