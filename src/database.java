@@ -20,7 +20,7 @@ public class database {
     
     //to validate login 
     public boolean validateCustomerLogin(String custID, String pass) {
-    	for (Customer c : customers) {
+    	for (Customer c : customerList) {
     		if(c.getUserID().equals(custID) && c.getPassword().equals(pass)) {
     			return true;
     		}
@@ -80,7 +80,7 @@ public class database {
     
  // Additional Methods (Optional)
     public void addCustomer(Customer customer) {
-        customers.add(customer);
+        customerList.add(customer);
     }
 
     public void addStaff(Staff staff) {
@@ -88,7 +88,7 @@ public class database {
     }
 
     public ArrayList<Customer> getCustomers() {
-        return customers;
+        return customerList;
     }
 
     public ArrayList<Staff> getStaffList() {
