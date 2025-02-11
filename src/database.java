@@ -2,8 +2,8 @@ import java.util.ArrayList;
 
 
 public class database {
-    private ArrayList<Customer> customers = new ArrayList<Customer>();
-    private ArrayList<Staff> staffList = new ArrayList<Staff>();
+    private static ArrayList<Customer> customerList = new ArrayList<Customer>();
+    private static ArrayList<Staff> staffList = new ArrayList<Staff>();
     //static ArrayList<Restaurant> restaurants = new ArrayList<>();
     //static ArrayList<Reservation> reservations = new ArrayList<>();
 
@@ -42,10 +42,21 @@ public class database {
     staffList.add(staff1);
 	staffList.add(staff2);
 	
-	customers.add(c1);
-	customers.add(c2);
+	customerList.add(c1);
+	customerList.add(c2);
 	
     }
+
+	public static Customer getCustomer(String custID, String password) {
+		for (Customer customer : customerList) {
+			if (customer.getCustID().equals(custID) &&
+				customer.getPassword().equals(password)) {
+				return customer;
+			}
+		}
+		
+		return null;
+	}
 
     
 }

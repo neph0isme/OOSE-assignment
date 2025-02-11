@@ -59,7 +59,7 @@ public class depositPayment extends JFrame {
             
             // Open the next interface (ViewReservationGUI)
             frame.dispose();
-            new viewReserve(); // Ensure this class exists
+            new viewReserve(null); // Ensure this class exists
         });
 
         bottomPanel.add(backButton);

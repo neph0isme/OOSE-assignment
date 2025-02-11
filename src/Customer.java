@@ -8,11 +8,11 @@ public class Customer extends User {
 		this.custID = custID;
 	}
 	
-	public String getMatricNumber() {
+	public String getCustID() {
 		return custID;
 	}
 	
-	public void setMatricNumber(String newCustID) {
+	public void setCustID(String newCustID) {
 		this.custID = newCustID;
 	}
 	

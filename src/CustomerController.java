@@ -13,8 +13,10 @@ public class CustomerController extends userController {
 	public void login(String custID, String password) {
 		customer = database.getCustomer(custID, password);
 
-		if (student != null) this.displayStudentView();                 
-		else mainController.displayErrorLoginView();
+		if (customer != null)
+			this.displayStudentView();                 
+		else 
+			mainController.displayErrorLoginView();
 	}
 	
 	public void logout() {
