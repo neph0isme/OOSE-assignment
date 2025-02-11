@@ -1,20 +1,31 @@
 
 public class Customer extends User {
-	private String custID;
 	
+	
+	private String email;
+	private String phoneNumber;
+
 	public Customer(String custID, String name, String email, String phoneNumber, String password) {
-		super(name, email, phoneNumber, password);
-		
-		this.custID = custID;
+		super(custID, name, password);
+		this.email = email;
+		this.phoneNumber = phoneNumber;
 	}
 	
-	public String getMatricNumber() {
-		return custID;
-	}
-	
-	public void setMatricNumber(String newCustID) {
-		this.custID = newCustID;
-	}
+	public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String newEmail) {
+        this.email = newEmail;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String newPhoneNumber) {
+        this.phoneNumber = newPhoneNumber;
+    }
 	
 	
 }

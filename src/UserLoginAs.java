@@ -43,25 +43,39 @@ public class UserLoginAs extends JFrame {
 		contentPane.add(lbltitle);
 		
 		JButton btnstaff = new JButton("Restaurant Staff");
-		btnstaff.setBounds(244, 223, 136, 23);
+		btnstaff.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnstaff.setBounds(241, 223, 149, 23);
 		contentPane.add(btnstaff);
-		
-		JButton btncust = new JButton("Customer");
-		btncust.setBounds(244, 279, 136, 23);
-		contentPane.add(btncust);
 		
 		btnstaff.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new RestStaffLogin().setVisible(true);
-				dispose();
+				//System.out.println("Staff button clicked!");
+				try {
+		            new RestStaffLogin().setVisible(true);
+		        } catch (Exception ex) {
+		            ex.printStackTrace();
+		        }
 			}
 		});
+
+		JButton btncust = new JButton("Customer");
+		btncust.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btncust.setBounds(241, 279, 149, 23);
+		contentPane.add(btncust);
 		
 		btncust.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new CustomerLogin().setVisible(true);
-				dispose();
+				//System.out.println("Cust button clicked!");
+				try {
+		            new CustomerLogin().setVisible(true);
+		        } catch (Exception ex) {
+		            ex.printStackTrace();
+		        }
 			}
 		});
+
+		
+		
+		
 	}
 }

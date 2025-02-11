@@ -5,18 +5,26 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import java.awt.Font;
 import javax.swing.JButton;
+import javax.swing.AbstractAction;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.Action;
 
 public class RestStaffLogin extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField txt_restid;
+	private JTextField txt_pass;
+	private database db = new database();
+	
 
 	/**
 	 * Launch the application.
@@ -38,6 +46,7 @@ public class RestStaffLogin extends JFrame {
 	 * Create the frame.
 	 */
 	public RestStaffLogin() {
+		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 660, 480);
 		contentPane = new JPanel();
@@ -52,15 +61,15 @@ public class RestStaffLogin extends JFrame {
 		lbltitle.setBounds(145, 97, 346, 37);
 		contentPane.add(lbltitle);
 		
-		textField = new JTextField();
-		textField.setBounds(308, 177, 129, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		txt_restid = new JTextField();
+		txt_restid.setBounds(308, 177, 129, 20);
+		contentPane.add(txt_restid);
+		txt_restid.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(308, 218, 129, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		txt_pass = new JTextField();
+		txt_pass.setBounds(308, 218, 129, 20);
+		contentPane.add(txt_pass);
+		txt_pass.setColumns(10);
 		
 		JLabel lblrest = new JLabel("Restaurant ID");
 		lblrest.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -75,9 +84,23 @@ public class RestStaffLogin extends JFrame {
 		contentPane.add(lblpass);
 		
 		JButton btnlogin = new JButton("Login");
-		btnlogin.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnlogin.setBounds(309, 265, 77, 23);
+		btnlogin.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnlogin.setBounds(310, 263, 89, 23);
 		contentPane.add(btnlogin);
-	}
+		
+		btnlogin.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String restID = txt_restid.getText();
+                String password = txt_pass.getText();
 
+                if (db.validateStaffLogin(restID, password)) {
+                    JOptionPane.showMessageDialog(null, "Login Successful!");
+                    dispose(); 
+                    
+                } else {
+                    JOptionPane.showMessageDialog(null, "Login Unsuccessful");
+                }
+            }
+        });
+	}
 }
