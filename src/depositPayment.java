@@ -4,7 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class depositPayment extends JFrame {
-    public depositPayment() {
+    
+	public depositPayment() {
         // Create the main frame with BorderLayout
         JFrame frame = new JFrame("Deposit Payment");
         frame.setSize(400, 450);
