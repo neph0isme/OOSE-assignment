@@ -10,11 +10,12 @@ public class StaffBookingList extends JFrame {
     private database db; // Instance of the database class
 
     public StaffBookingList() {
+    	setBackground(new Color(255, 128, 192));
         db = new database(); // Initialize the database instance
 
         setTitle("Staff Booking List");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new BorderLayout());
+        getContentPane().setLayout(new BorderLayout());
 
         // Create table model with column names
         String[] columnNames = {"Pax", "Name", "Phone", "Email"};
@@ -23,7 +24,7 @@ public class StaffBookingList extends JFrame {
         
         // Create a scroll pane for the table
         JScrollPane scrollPane = new JScrollPane(bookingTable);
-        add(scrollPane, BorderLayout.CENTER);
+        getContentPane().add(scrollPane, BorderLayout.CENTER);
 
         // Create a button panel
         JPanel buttonPanel = new JPanel();
@@ -36,7 +37,7 @@ public class StaffBookingList extends JFrame {
 
         buttonPanel.add(refreshButton);
         buttonPanel.add(closeButton);
-        add(buttonPanel, BorderLayout.SOUTH);
+        getContentPane().add(buttonPanel, BorderLayout.SOUTH);
 
         // Load initial booking data
         refreshBookingList();
