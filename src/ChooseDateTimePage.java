@@ -9,6 +9,7 @@ public class ChooseDateTimePage extends JFrame {
         setSize(600, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
+        setLocationRelativeTo(null);
 
         // Back Button
         JButton btnBack = new JButton("Back");
