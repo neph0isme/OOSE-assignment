@@ -69,15 +69,9 @@ public class UpdRestDet extends JFrame {
         JLabel ratingLabel = new JLabel("Rating (Out of 5):");
         ratingLabel.setBounds(50, 230, 120, 25);
         contentPane.add(ratingLabel);
-
+        
         JButton saveButton = new JButton("Save");
         saveButton.setBounds(150, 300, 100, 30);
-        saveButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                saveRestaurantDetails();
-            }
-        });
         contentPane.add(saveButton);
 
         JButton cancelButton = new JButton("Cancel");
@@ -88,6 +82,22 @@ public class UpdRestDet extends JFrame {
         JLabel lblrating = new JLabel(String.valueOf(restaurant.getRating())); // Display actual rating
         lblrating.setBounds(180, 235, 49, 14);
         contentPane.add(lblrating);
+        
+        
+        saveButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                saveRestaurantDetails();
+            }
+        });
+        
+        cancelButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new staffView(db, restaurant.getStaffID()).setVisible(true);
+                
+            }
+        });
     }
 
     private void saveRestaurantDetails() {
@@ -102,6 +112,7 @@ public class UpdRestDet extends JFrame {
         JOptionPane.showMessageDialog(this, "Restaurant details updated successfully!");
     }
 
+    /*
     public static void main(String[] args) {
         database db = new database();
         Restaurant restaurant = db.getRestaurants().get(0);
@@ -114,5 +125,5 @@ public class UpdRestDet extends JFrame {
                 e.printStackTrace();
             }
         });
-    }
+    } */
 }

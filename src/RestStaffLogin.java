@@ -26,9 +26,7 @@ public class RestStaffLogin extends JFrame {
 	private database db = new database();
 	
 
-	/**
-	 * Launch the application.
-	 */
+	/*
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -41,7 +39,7 @@ public class RestStaffLogin extends JFrame {
 				}
 			}
 		});
-	}
+	} */
 
 	/**
 	 * Create the frame.
@@ -51,6 +49,7 @@ public class RestStaffLogin extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 660, 480);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 128, 192));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo(null);
 

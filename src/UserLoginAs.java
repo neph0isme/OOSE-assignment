@@ -30,6 +30,8 @@ public class UserLoginAs extends JFrame {
 	}
 
 	public UserLoginAs() {
+		setTitle("OpenTable");
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 650, 480);
 		contentPane = new JPanel();
