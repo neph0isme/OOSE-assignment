@@ -4,7 +4,7 @@ public class CustomerController extends userController {
 	private Customer customer;
 	private viewReserve viewReserve;
 	
-	public CustomerController(MainController mainController, Database database) {
+	public CustomerController(MainController mainController, database database) {
 		super();
 		
 		viewReserve = new viewReserve(this);
@@ -14,7 +14,7 @@ public class CustomerController extends userController {
 		customer = database.getCustomer(custID, password);
 
 		if (customer != null)
-			this.displayStudentView();                 
+			viewReserve;
 		else 
 			mainController.displayErrorLoginView();
 	}

@@ -35,6 +35,7 @@ public class RestStaffLogin extends JFrame {
 				try {
 					RestStaffLogin frame = new RestStaffLogin();
 					frame.setVisible(true);
+					//dispose();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -51,6 +52,7 @@ public class RestStaffLogin extends JFrame {
 		setBounds(100, 100, 660, 480);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setLocationRelativeTo(null);
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -88,6 +90,10 @@ public class RestStaffLogin extends JFrame {
 		btnlogin.setBounds(310, 263, 89, 23);
 		contentPane.add(btnlogin);
 		
+		JButton btnBack = new JButton("back");
+		btnBack.setBounds(277, 407, 89, 23);
+		contentPane.add(btnBack);
+		
 		btnlogin.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String restID = txt_restid.getText();
@@ -95,12 +101,21 @@ public class RestStaffLogin extends JFrame {
 
                 if (db.validateStaffLogin(restID, password)) {
                     JOptionPane.showMessageDialog(null, "Login Successful!");
-                    dispose(); 
+                    //dispose(); 
                     
                 } else {
                     JOptionPane.showMessageDialog(null, "Login Unsuccessful");
                 }
             }
         });
+		
+		btnBack.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new UserLoginAs().setVisible(true);
+                dispose();
+            }
+        });
+		
 	}
 }

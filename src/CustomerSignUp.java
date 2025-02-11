@@ -153,6 +153,10 @@ public class CustomerSignUp extends JFrame {
 		lbl_email.setBounds(253, 332, 49, 14);
 		contentPane.add(lbl_email);
 		
+		JButton btnBack = new JButton("back");
+		btnBack.setBounds(305, 503, 89, 23);
+		contentPane.add(btnBack);
+		
 		btncreateacc.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // Retrieve User Inputs
@@ -175,6 +179,14 @@ public class CustomerSignUp extends JFrame {
                 // Navigate to the login page after successful account creation
                 new CustomerLogin().setVisible(true);
                 dispose();  // Close the current frame
+            }
+        });
+		
+		btnBack.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new UserLoginAs().setVisible(true);
+                dispose();
             }
         });
 	}

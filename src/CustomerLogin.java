@@ -20,6 +20,7 @@ import javax.swing.JButton;
 public class CustomerLogin extends JFrame {
 
 	private static final long serialVersionUID = 1L;
+	private static final boolean True = false;
 	private JPanel contentPane;
 	private JTextField txt_username;
 	private JTextField txt_pass;
@@ -52,6 +53,7 @@ public class CustomerLogin extends JFrame {
 		setBounds(100, 100, 660, 480);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setLocationRelativeTo(null);
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -59,35 +61,35 @@ public class CustomerLogin extends JFrame {
 		JLabel lbltitle = new JLabel("Login as Customer");
 		lbltitle.setFont(new Font("Tahoma", Font.BOLD, 24));
 		lbltitle.setHorizontalAlignment(SwingConstants.CENTER);
-		lbltitle.setBounds(182, 97, 294, 37);
+		lbltitle.setBounds(170, 97, 294, 37);
 		contentPane.add(lbltitle);
 		
 		JLabel lblun = new JLabel("Username");
 		lblun.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblun.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblun.setBounds(197, 178, 92, 14);
+		lblun.setBounds(181, 178, 92, 14);
 		contentPane.add(lblun);
 		
 		JLabel lblpass = new JLabel("Password");
 		lblpass.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblpass.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblpass.setBounds(212, 219, 77, 14);
+		lblpass.setBounds(196, 219, 77, 14);
 		contentPane.add(lblpass);
 		
 		txt_username = new JTextField();
-		txt_username.setBounds(299, 177, 132, 20);
+		txt_username.setBounds(283, 177, 132, 20);
 		contentPane.add(txt_username);
 		txt_username.setColumns(10);
 		
 		txt_pass = new JTextField();
-		txt_pass.setBounds(299, 218, 132, 20);
+		txt_pass.setBounds(283, 218, 132, 20);
 		contentPane.add(txt_pass);
 		txt_pass.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Do not have an account yet? ");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel.setBounds(212, 326, 242, 25);
+		lblNewLabel.setBounds(196, 326, 242, 25);
 		contentPane.add(lblNewLabel);
 		
 		//label to get to customer sign up page
@@ -95,7 +97,7 @@ public class CustomerLogin extends JFrame {
 		lbl_CNA.setForeground(Color.BLUE);
 		lbl_CNA.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl_CNA.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lbl_CNA.setBounds(271, 351, 140, 14);
+		lbl_CNA.setBounds(255, 351, 140, 14);
 		contentPane.add(lbl_CNA);
 		
 		lbl_CNA.addMouseListener(new MouseAdapter() {
@@ -120,8 +122,12 @@ public class CustomerLogin extends JFrame {
 		//login button
 		JButton btnlogin = new JButton("LOGIN");
 		btnlogin.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnlogin.setBounds(299, 266, 89, 23);
+		btnlogin.setBounds(283, 266, 89, 23);
 		contentPane.add(btnlogin);
+		
+		JButton btnBack = new JButton("back");
+		btnBack.setBounds(283, 407, 89, 23);
+		contentPane.add(btnBack);
 		
 		btnlogin.addActionListener(e -> {
             String username = txt_username.getText();
@@ -129,10 +135,18 @@ public class CustomerLogin extends JFrame {
 
             if (db.validateCustomerLogin(username, password)) {
                 JOptionPane.showMessageDialog(this, "Login Successful");
-                new selectPicture().setVisible(true); 
+                new custOption(db.c2).setVisible(true);
                 dispose();
             } else {
                 JOptionPane.showMessageDialog(this, "Login Unsuccessfull");
+            }
+        });
+		
+		btnBack.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new UserLoginAs().setVisible(true);
+                dispose();
             }
         });
 	}

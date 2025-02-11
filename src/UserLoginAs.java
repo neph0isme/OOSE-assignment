@@ -8,6 +8,7 @@ import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
 
 public class UserLoginAs extends JFrame {
 
@@ -33,18 +34,20 @@ public class UserLoginAs extends JFrame {
 		setBounds(100, 100, 650, 480);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setLocationRelativeTo(null);
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lbltitle = new JLabel("Login As...");
-		lbltitle.setFont(new Font("Verdana", Font.BOLD, 18));
-		lbltitle.setBounds(263, 90, 117, 72);
+		lbltitle.setHorizontalAlignment(SwingConstants.CENTER);
+		lbltitle.setFont(new Font("Verdana", Font.PLAIN, 18));
+		lbltitle.setBounds(20, 235, 604, 72);
 		contentPane.add(lbltitle);
 		
 		JButton btnstaff = new JButton("Restaurant Staff");
 		btnstaff.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnstaff.setBounds(241, 223, 149, 23);
+		btnstaff.setBounds(243, 318, 149, 23);
 		contentPane.add(btnstaff);
 		
 		btnstaff.addActionListener(new ActionListener() {
@@ -52,6 +55,7 @@ public class UserLoginAs extends JFrame {
 				//System.out.println("Staff button clicked!");
 				try {
 		            new RestStaffLogin().setVisible(true);
+		            dispose();
 		        } catch (Exception ex) {
 		            ex.printStackTrace();
 		        }
@@ -60,14 +64,27 @@ public class UserLoginAs extends JFrame {
 
 		JButton btncust = new JButton("Customer");
 		btncust.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btncust.setBounds(241, 279, 149, 23);
+		btncust.setBounds(243, 374, 149, 23);
 		contentPane.add(btncust);
+		
+		JLabel lblWelcomeTo = new JLabel("Welcome To");
+		lblWelcomeTo.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblWelcomeTo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblWelcomeTo.setBounds(10, 51, 614, 40);
+		contentPane.add(lblWelcomeTo);
+		
+		JLabel lblOpenTable = new JLabel("OpenTable");
+		lblOpenTable.setFont(new Font("Tahoma", Font.BOLD, 26));
+		lblOpenTable.setHorizontalAlignment(SwingConstants.CENTER);
+		lblOpenTable.setBounds(10, 106, 604, 72);
+		contentPane.add(lblOpenTable);
 		
 		btncust.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//System.out.println("Cust button clicked!");
 				try {
 		            new CustomerLogin().setVisible(true);
+		            dispose();
 		        } catch (Exception ex) {
 		            ex.printStackTrace();
 		        }

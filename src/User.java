@@ -1,7 +1,7 @@
 
 public class User {
 	private String userID;
-    private String name;
+    protected String name;
     private String password;
 	
 	public User(String userID, String name, String password) {
