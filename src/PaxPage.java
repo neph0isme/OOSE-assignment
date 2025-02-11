@@ -59,16 +59,8 @@ public class PaxPage extends JFrame {
         confirmButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String pax = paxField.getText();
-                String name = nameField.getText();
-                String phone = phoneField.getText();
-                String email = emailField.getText();
-                
-                JOptionPane.showMessageDialog(PaxPage.this, "Booking Confirmed!\n" +
-                        "Pax: " + pax + "\n" +
-                        "Name: " + name + "\n" +
-                        "Phone: " + phone + "\n" +
-                        "Email: " + email);
+            	PaxPage.this.dispose();
+                new depositPayment().setVisible(true);
             }
         });
 
@@ -77,7 +69,7 @@ public class PaxPage extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 PaxPage.this.dispose();
-                new ChooseDateTimePage(); // Assuming this class exists
+                new ChooseDateTimePage().setVisible(true); // Assuming this class exists
             }
         });
 
