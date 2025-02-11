@@ -4,8 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PaxPage extends JFrame {
-    
-    private JTextField paxField;
     private JTextField nameField;
     private JTextField phoneField;
     private JTextField emailField;
@@ -30,7 +28,6 @@ public class PaxPage extends JFrame {
         JPanel formPanel = new JPanel(new GridLayout(5, 2, 5, 5)); 
         formPanel.setBackground(new Color(128, 255, 255));
         JLabel paxLabel = new JLabel("Choose pax: ");
-        paxField = new JTextField(5);
         JLabel nameLabel = new JLabel("Name: ");
         nameField = new JTextField(20);
         JLabel phoneLabel = new JLabel("Number Phone: ");
@@ -42,7 +39,9 @@ public class PaxPage extends JFrame {
         confirmButton.setPreferredSize(new Dimension(100, 25)); // Set preferred size for the confirm button
 
         formPanel.add(paxLabel);
-        formPanel.add(paxField);
+        
+        JSpinner spinner = new JSpinner();
+        formPanel.add(spinner);
         formPanel.add(nameLabel);
         formPanel.add(nameField);
         formPanel.add(phoneLabel);
