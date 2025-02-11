@@ -4,10 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class custOption extends JFrame {
-    public custOption() {  // Default constructor
-        this(null);  // Call the existing constructor with a null Customer object
-    }
-
+	
     public custOption(Customer customer) {
         getContentPane().setBackground(new Color(128, 255, 255));
         setTitle("Pick Your Options");
