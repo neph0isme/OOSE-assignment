@@ -1,22 +1,21 @@
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class ChooseDateTimePage extends JFrame {
     public ChooseDateTimePage() {
-    	getContentPane().setBackground(new Color(255, 128, 128));
+        getContentPane().setBackground(new Color(255, 128, 128));
         setTitle("Choose Date & Time");
         setSize(600, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
+        // Back Button
         JButton btnBack = new JButton("Back");
         btnBack.setBounds(10, 10, 83, 21);
-        btnBack.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                // Add action for the back button if needed
-            }
+        btnBack.addActionListener(e -> {
+            new selectPicture().setVisible(true); // Open selectPicture GUI
+            dispose(); // Close current window
         });
         getContentPane().add(btnBack);
 
@@ -44,9 +43,9 @@ public class ChooseDateTimePage extends JFrame {
         comboBoxYear.setBounds(130, 138, 93, 21);
         getContentPane().add(comboBoxYear);
 
-        // Month ComboBox (January - February)
-        JComboBox<String> comboBoxMonth = new JComboBox<>(new String[]{"January", "February", "March", "April", "May", "June"
-        		, "July", "August", "September", "October", "November", "December"});
+        // Month ComboBox
+        JComboBox<String> comboBoxMonth = new JComboBox<>(new String[]{"January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"});
         comboBoxMonth.setBounds(300, 138, 93, 21);
         getContentPane().add(comboBoxMonth);
 
@@ -70,7 +69,7 @@ public class ChooseDateTimePage extends JFrame {
         lblDay.setBounds(437, 142, 30, 13);
         getContentPane().add(lblDay);
 
-        // Time ComboBox (00:00 - 23:00)
+        // Time ComboBoxes
         JComboBox<String> comboBoxFrom = new JComboBox<>();
         JComboBox<String> comboBoxTo = new JComboBox<>();
         for (int hour = 0; hour < 24; hour++) {
@@ -83,6 +82,15 @@ public class ChooseDateTimePage extends JFrame {
 
         comboBoxTo.setBounds(144, 262, 93, 21);
         getContentPane().add(comboBoxTo);
+
+        // Next Button
+        JButton btnNext = new JButton("Next");
+        btnNext.setBounds(276, 319, 83, 21);
+        btnNext.addActionListener(e -> {
+            new PaxPage().setVisible(true); // Open paxPage GUI
+            dispose(); // Close current window
+        });
+        getContentPane().add(btnNext);
     }
 
     public static void main(String[] args) {
