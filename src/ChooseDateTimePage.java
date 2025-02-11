@@ -5,10 +5,11 @@ import java.awt.event.ActionEvent;
 
 public class ChooseDateTimePage extends JFrame {
     public ChooseDateTimePage() {
+    	getContentPane().setBackground(new Color(255, 128, 128));
         setTitle("Choose Date & Time");
         setSize(600, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(null);
+        getContentPane().setLayout(null);
 
         JButton btnBack = new JButton("Back");
         btnBack.setBounds(10, 10, 83, 21);
@@ -17,23 +18,23 @@ public class ChooseDateTimePage extends JFrame {
                 // Add action for the back button if needed
             }
         });
-        add(btnBack);
+        getContentPane().add(btnBack);
 
         JLabel lblSelectDate = new JLabel("SELECT DATE:");
         lblSelectDate.setBounds(60, 95, 100, 21);
-        add(lblSelectDate);
+        getContentPane().add(lblSelectDate);
 
         JLabel lblSelectTime = new JLabel("SELECT TIME:");
         lblSelectTime.setBounds(60, 209, 100, 13);
-        add(lblSelectTime);
+        getContentPane().add(lblSelectTime);
 
         JLabel lblFrom = new JLabel("FROM:");
         lblFrom.setBounds(91, 236, 40, 13);
-        add(lblFrom);
+        getContentPane().add(lblFrom);
 
         JLabel lblTo = new JLabel("TO:");
-        lblTo.setBounds(104, 266, 20, 13);
-        add(lblTo);
+        lblTo.setBounds(104, 266, 40, 13);
+        getContentPane().add(lblTo);
 
         // Year ComboBox (2025 - 2030)
         JComboBox<String> comboBoxYear = new JComboBox<>();
@@ -41,12 +42,13 @@ public class ChooseDateTimePage extends JFrame {
             comboBoxYear.addItem(String.valueOf(year));
         }
         comboBoxYear.setBounds(130, 138, 93, 21);
-        add(comboBoxYear);
+        getContentPane().add(comboBoxYear);
 
         // Month ComboBox (January - February)
-        JComboBox<String> comboBoxMonth = new JComboBox<>(new String[]{"January", "February"});
+        JComboBox<String> comboBoxMonth = new JComboBox<>(new String[]{"January", "February", "March", "April", "May", "June"
+        		, "July", "August", "September", "October", "November", "December"});
         comboBoxMonth.setBounds(300, 138, 93, 21);
-        add(comboBoxMonth);
+        getContentPane().add(comboBoxMonth);
 
         // Day ComboBox (1 - 31)
         JComboBox<String> comboBoxDay = new JComboBox<>();
@@ -54,19 +56,19 @@ public class ChooseDateTimePage extends JFrame {
             comboBoxDay.addItem(String.valueOf(day));
         }
         comboBoxDay.setBounds(470, 138, 93, 21);
-        add(comboBoxDay);
+        getContentPane().add(comboBoxDay);
 
         JLabel lblYear = new JLabel("YEAR");
         lblYear.setBounds(91, 142, 40, 13);
-        add(lblYear);
+        getContentPane().add(lblYear);
 
         JLabel lblMonth = new JLabel("MONTH");
         lblMonth.setBounds(250, 142, 50, 13);
-        add(lblMonth);
+        getContentPane().add(lblMonth);
 
         JLabel lblDay = new JLabel("DAY");
         lblDay.setBounds(437, 142, 30, 13);
-        add(lblDay);
+        getContentPane().add(lblDay);
 
         // Time ComboBox (00:00 - 23:00)
         JComboBox<String> comboBoxFrom = new JComboBox<>();
@@ -76,11 +78,11 @@ public class ChooseDateTimePage extends JFrame {
             comboBoxFrom.addItem(time);
             comboBoxTo.addItem(time);
         }
-        comboBoxFrom.setBounds(130, 232, 93, 21);
-        add(comboBoxFrom);
+        comboBoxFrom.setBounds(144, 232, 93, 21);
+        getContentPane().add(comboBoxFrom);
 
-        comboBoxTo.setBounds(130, 262, 93, 21);
-        add(comboBoxTo);
+        comboBoxTo.setBounds(144, 262, 93, 21);
+        getContentPane().add(comboBoxTo);
     }
 
     public static void main(String[] args) {

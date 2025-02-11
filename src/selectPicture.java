@@ -19,6 +19,7 @@ public class selectPicture extends JFrame {
 		getContentPane().add(scrollBar);
 		
 		JLabel lblNewLabel = new JLabel("PIC1");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\ASUS\\OneDrive - Universiti Kebangsaan Malaysia\\Pictures\\saje.jpg"));
 		lblNewLabel.setBounds(62, 108, 343, 87);
 		getContentPane().add(lblNewLabel);
 		
@@ -38,4 +39,5 @@ public class selectPicture extends JFrame {
 		getContentPane().add(txtRatingCuisine);
 		txtRatingCuisine.setColumns(10);
 	}
+	
 }
