@@ -3,13 +3,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.RowSpec;
-import com.jgoodies.forms.layout.FormSpecs;
+
 
 public class custOption extends JFrame {
 	public custOption(Customer customer) {
+		getContentPane().setBackground(new Color(128, 255, 255));
 		setTitle("Pick Your Options");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(320, 300);
@@ -54,6 +52,7 @@ public class custOption extends JFrame {
         });
 		
 	}
+
 	
 	
 	

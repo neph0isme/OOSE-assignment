@@ -4,21 +4,25 @@ import java.awt.event.ActionListener;
 
 public class depositPayment extends JFrame {
     public depositPayment() {
+    	setBackground(new Color(128, 255, 255));
         // Set up frame properties
         setTitle("Deposit Payment");
         setSize(400, 450);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLayout(new BorderLayout());
+        getContentPane().setLayout(new BorderLayout());
 
         // ----------------- Top Panel (Title) -----------------
         JPanel topPanel = new JPanel();
+        topPanel.setBackground(new Color(128, 255, 255));
         JLabel titleLabel = new JLabel("Deposit Payment", SwingConstants.CENTER);
         titleLabel.setFont(new Font("Arial", Font.BOLD, 18));
         topPanel.add(titleLabel);
 
         // ----------------- Center Panel (Payment Methods) -----------------
         JPanel centerPanel = new JPanel(new GridLayout(4, 1, 10, 10));
+        centerPanel.setBackground(new Color(128, 255, 255));
         JLabel methodLabel = new JLabel("Choose Payment Method:", SwingConstants.CENTER);
+        methodLabel.setBackground(new Color(128, 255, 255));
         methodLabel.setFont(new Font("Arial", Font.PLAIN, 14));
         centerPanel.add(methodLabel);
 
@@ -32,6 +36,7 @@ public class depositPayment extends JFrame {
 
         // ----------------- Bottom Panel (Back and Done Buttons) -----------------
         JPanel bottomPanel = new JPanel();
+        bottomPanel.setBackground(new Color(128, 255, 255));
         JButton backButton = new JButton("Back");
         JButton doneButton = new JButton("Done");
         doneButton.setEnabled(false);  // Initially disabled
@@ -40,9 +45,9 @@ public class depositPayment extends JFrame {
         bottomPanel.add(doneButton);
 
         // ----------------- Add Panels to the Frame -----------------
-        add(topPanel, BorderLayout.NORTH);
-        add(centerPanel, BorderLayout.CENTER);
-        add(bottomPanel, BorderLayout.SOUTH);
+        getContentPane().add(topPanel, BorderLayout.NORTH);
+        getContentPane().add(centerPanel, BorderLayout.CENTER);
+        getContentPane().add(bottomPanel, BorderLayout.SOUTH);
 
         // ----------------- Action Listeners -----------------
         final String[] selectedPaymentMethod = {null};

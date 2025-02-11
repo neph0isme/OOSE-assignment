@@ -12,6 +12,7 @@ public class PaxPage extends JFrame {
     private database db;
 
     public PaxPage() {
+    	setBackground(new Color(128, 255, 255));
         db = new database(); 
 
         setTitle("Pax Page");
@@ -19,11 +20,13 @@ public class PaxPage extends JFrame {
         getContentPane().setLayout(new BorderLayout());
 
         JPanel backButtonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        backButtonPanel.setBackground(new Color(128, 255, 255));
         backButton = new JButton("Back");
         backButton.setPreferredSize(new Dimension(75, 20)); 
         backButtonPanel.add(backButton); 
         
         JPanel formPanel = new JPanel(new GridLayout(5, 2, 5, 5)); 
+        formPanel.setBackground(new Color(128, 255, 255));
         JLabel paxLabel = new JLabel("Choose pax: ");
         JLabel nameLabel = new JLabel("Name: ");
         nameField = new JTextField(20);
@@ -37,7 +40,7 @@ public class PaxPage extends JFrame {
 
         formPanel.add(paxLabel);
         
-        JSpinner spinner = new JSpinner();
+        JSpinner spinner = new JSpinner(new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1));
         formPanel.add(spinner);
         formPanel.add(nameLabel);
         formPanel.add(nameField);
@@ -48,6 +51,7 @@ public class PaxPage extends JFrame {
         
         // Create a panel for the confirm button
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        buttonPanel.setBackground(new Color(128, 255, 255));
         buttonPanel.add(confirmButton);
         formPanel.add(new JLabel()); // Empty label for spacing
         formPanel.add(buttonPanel); // Add button panel to form
