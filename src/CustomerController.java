@@ -14,7 +14,7 @@ public class CustomerController extends userController {
 		customer = database.getCustomer(custID, password);
 
 		if (customer != null)
-			this.displayStudentView();                 
+			this.viewReserve();
 		else 
 			mainController.displayErrorLoginView();
 	}

@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 public class viewReserve extends JFrame {
 	private static CustomerController customerController;
+	private database db = new database();
 	
     public viewReserve(CustomerController customerController) {
     	this.customerController = customerController;
@@ -69,7 +70,7 @@ public class viewReserve extends JFrame {
         btnBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new UserLoginAs().setVisible(true);
+                new custOption(db.c1).setVisible(true);
                 dispose();
             }
         });

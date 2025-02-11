@@ -10,6 +10,10 @@ public class Customer extends User {
 		this.phoneNumber = phoneNumber;
 	}
 	
+	public String getName() {
+		return name;
+	}
+	
 	public String getEmail() {
         return email;
     }

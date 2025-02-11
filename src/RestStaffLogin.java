@@ -35,6 +35,7 @@ public class RestStaffLogin extends JFrame {
 				try {
 					RestStaffLogin frame = new RestStaffLogin();
 					frame.setVisible(true);
+					//dispose();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -51,6 +52,7 @@ public class RestStaffLogin extends JFrame {
 		setBounds(100, 100, 660, 480);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setLocationRelativeTo(null);
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -95,7 +97,7 @@ public class RestStaffLogin extends JFrame {
 
                 if (db.validateStaffLogin(restID, password)) {
                     JOptionPane.showMessageDialog(null, "Login Successful!");
-                    dispose(); 
+                    //dispose(); 
                     
                 } else {
                     JOptionPane.showMessageDialog(null, "Login Unsuccessful");

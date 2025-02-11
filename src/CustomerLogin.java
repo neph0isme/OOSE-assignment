@@ -20,6 +20,7 @@ import javax.swing.JButton;
 public class CustomerLogin extends JFrame {
 
 	private static final long serialVersionUID = 1L;
+	private static final boolean True = false;
 	private JPanel contentPane;
 	private JTextField txt_username;
 	private JTextField txt_pass;
@@ -52,6 +53,7 @@ public class CustomerLogin extends JFrame {
 		setBounds(100, 100, 660, 480);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setLocationRelativeTo(null);
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -129,7 +131,8 @@ public class CustomerLogin extends JFrame {
 
             if (db.validateCustomerLogin(username, password)) {
                 JOptionPane.showMessageDialog(this, "Login Successful");
-                new selectPicture().setVisible(true); 
+                //new selectPicture().setVisible(true);
+                new custOption(db.c2).setVisible(true);
                 dispose();
             } else {
                 JOptionPane.showMessageDialog(this, "Login Unsuccessfull");
