@@ -7,9 +7,6 @@ public class database {
     private static ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>();
     private static ArrayList<Reservation> reservations = new ArrayList<Reservation>();
 
-    
-    
-    
     // Pre-Stored Restaurant Login info:
     
     //String staffID, String name, String password
