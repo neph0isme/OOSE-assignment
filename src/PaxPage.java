@@ -11,10 +11,10 @@ public class PaxPage extends JFrame {
     private JTextField emailField;
     private JButton confirmButton;
     private JButton backButton; 
-    private database db; // Instance of the database class
+    private database db;
 
     public PaxPage() {
-        db = new database(); // Initialize the database instance
+        db = new database(); 
 
         setTitle("Pax Page");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -58,9 +58,6 @@ public class PaxPage extends JFrame {
                 String phone = phoneField.getText();
                 String email = emailField.getText();
                 
-                // Here you can add logic to save the booking to the database
-                // For example, you could create a new Customer object and add it to the database
-                // db.addCustomer(new Customer(...));
 
                 JOptionPane.showMessageDialog(PaxPage.this, "Booking Confirmed!\n" +
                         "Pax: " + pax + "\n" +
