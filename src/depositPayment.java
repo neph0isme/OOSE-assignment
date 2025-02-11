@@ -3,7 +3,6 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class depositPayment extends JFrame {
-<<<<<<< HEAD
     
 	public depositPayment() {
         // Create the main frame with BorderLayout
@@ -18,7 +17,6 @@ public class depositPayment extends JFrame {
         setSize(400, 450);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
->>>>>>> d0ada5af7384647071652e693ba37d9d1e000070
 
         // ----------------- Top Panel (Title) -----------------
         JPanel topPanel = new JPanel();
