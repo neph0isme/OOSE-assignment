@@ -4,10 +4,9 @@ import java.util.ArrayList;
 public class database {
     private static ArrayList<Customer> customerList = new ArrayList<Customer>();
     private static ArrayList<Staff> staffList = new ArrayList<Staff>();
-    //static ArrayList<Restaurant> restaurants = new ArrayList<>();
-    //static ArrayList<Reservation> reservations = new ArrayList<>();
+    private static ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>();
+    private static ArrayList<Reservation> reservations = new ArrayList<Reservation>();
 
-    
     // Pre-Stored Restaurant Login info:
     
     //String staffID, String name, String password
@@ -52,12 +51,16 @@ public class database {
     /*Restaurant info:
     (nama rest, type of cuisine, location, numofpax, rating)*/
     
+    Restaurant rest1 = new Restaurant("Sushi Paradise", "Japanese Cuisine", "Shah Alam, Selangor", 80, 0.0);
+    Restaurant rest2 = new Restaurant("Pasta Anjay", "Italian Cuisine", "Nilai, Negeri Sembilan", 60, 0.0);		
+    		
     /*Cust info:
      (nama, no phone, email)*/
     
+    		
     /*reservation 
      (reservationid, restaurantid, reservepax, custname, nophone, email, status)*/
-    
+    Reservation reserve1 = new Reservation("B001", "R001", 4, "Zulhanif Ramli", "0165523433", "zul@gmail.com", true);
     /*reservation (pov staff)
     (reservationid, reservepax, custname, nophone, email, status)*/
     
@@ -75,6 +78,11 @@ public class database {
 	
 	customerList.add(c1);
 	customerList.add(c2);
+	
+	restaurants.add(rest1);
+    restaurants.add(rest2);
+
+    reservations.add(reserve1);
 	
     }
     
