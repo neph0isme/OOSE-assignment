@@ -90,6 +90,10 @@ public class RestStaffLogin extends JFrame {
 		btnlogin.setBounds(310, 263, 89, 23);
 		contentPane.add(btnlogin);
 		
+		JButton btnBack = new JButton("back");
+		btnBack.setBounds(277, 407, 89, 23);
+		contentPane.add(btnBack);
+		
 		btnlogin.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String restID = txt_restid.getText();
@@ -104,5 +108,14 @@ public class RestStaffLogin extends JFrame {
                 }
             }
         });
+		
+		btnBack.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new UserLoginAs().setVisible(true);
+                dispose();
+            }
+        });
+		
 	}
 }

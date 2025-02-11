@@ -55,7 +55,7 @@ public class UpdRestDet extends JFrame {
         gbc.gridy = 1;
         gbc.gridwidth = 1;
         gbc.anchor = GridBagConstraints.EAST;
-        contentPane.add(restaurantNameLabel, gbc);
+        //contentPane.add(restaurantNameLabel, gbc);
 
         restaurantNameField = new JTextField(20);
         gbc.gridx = 1;
@@ -66,58 +66,58 @@ public class UpdRestDet extends JFrame {
         JLabel cuisineTypeLabel = new JLabel("Type of Cuisine:");
         gbc.gridx = 0;
         gbc.gridy = 2;
-        contentPane.add(cuisineTypeLabel, gbc);
+        //contentPane.add(cuisineTypeLabel, gbc);
 
         cuisineTypeField = new JTextField(20);
         gbc.gridx = 1;
         gbc.gridy = 2;
-        contentPane.add(cuisineTypeField, gbc);
+        //contentPane.add(cuisineTypeField, gbc);
 
         // Location
         JLabel locationLabel = new JLabel("Location:");
         gbc.gridx = 0;
         gbc.gridy = 3;
-        contentPane.add(locationLabel, gbc);
+        //contentPane.add(locationLabel, gbc);
 
         locationField = new JTextField(20);
         gbc.gridx = 1;
         gbc.gridy = 3;
-        contentPane.add(locationField, gbc);
+       // contentPane.add(locationField, gbc);
 
         // Number of Pax (numofpax)
         JLabel paxLabel = new JLabel("Num of Pax:");
         gbc.gridx = 0;
         gbc.gridy = 4;
-        contentPane.add(paxLabel, gbc);
+        //contentPane.add(paxLabel, gbc);
 
         paxSpinner = new JSpinner(new SpinnerNumberModel(1, 1, 100, 1)); // Default value, min, max, step
         gbc.gridx = 1;
         gbc.gridy = 4;
-        contentPane.add(paxSpinner, gbc);
+        //contentPane.add(paxSpinner, gbc);
 
         // Rating
         JLabel ratingDisplayLabel = new JLabel("Rating:");
         gbc.gridx = 0;
         gbc.gridy = 5;
-        contentPane.add(ratingDisplayLabel, gbc);
+        //contentPane.add(ratingDisplayLabel, gbc);
 
         // JLabel for displaying the rating
         ratingLabel = new JLabel("4 Stars"); // Example rating, you can set this dynamically
         gbc.gridx = 1;
         gbc.gridy = 5;
-        contentPane.add(ratingLabel, gbc);
+        //contentPane.add(ratingLabel, gbc);
 
         // Buttons
         JButton saveButton = new JButton("Save");
         gbc.gridx = 0;
         gbc.gridy = 6;
         gbc.anchor = GridBagConstraints.EAST;
-        contentPane.add(saveButton, gbc);
+        //contentPane.add(saveButton, gbc);
 
         JButton cancelButton = new JButton("Cancel");
         gbc.gridx = 1;
         gbc.gridy = 6;
         gbc.anchor = GridBagConstraints.WEST;
-        contentPane.add(cancelButton, gbc);
+        //contentPane.add(cancelButton, gbc);
     }
 }
