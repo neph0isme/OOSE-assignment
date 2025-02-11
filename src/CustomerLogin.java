@@ -129,6 +129,7 @@ public class CustomerLogin extends JFrame {
 
             if (db.validateCustomerLogin(username, password)) {
                 JOptionPane.showMessageDialog(this, "Login Successful");
+                new selectPicture().setVisible(true); 
                 dispose();
             } else {
                 JOptionPane.showMessageDialog(this, "Login Unsuccessfull");

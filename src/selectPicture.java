@@ -10,14 +10,6 @@ public class selectPicture extends JFrame {
 	public selectPicture() {
 		getContentPane().setLayout(null);
 		
-		JButton btnNewButton = new JButton("BACK");
-		btnNewButton.setBounds(10, 10, 94, 33);
-		getContentPane().add(btnNewButton);
-		
-		JScrollBar scrollBar = new JScrollBar();
-		scrollBar.setBounds(608, 79, 27, 272);
-		getContentPane().add(scrollBar);
-		
 		JLabel lblNewLabel = new JLabel("PIC1");
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\ASUS\\OneDrive - Universiti Kebangsaan Malaysia\\Pictures\\saje.jpg"));
 		lblNewLabel.setBounds(62, 108, 343, 87);
@@ -38,6 +30,10 @@ public class selectPicture extends JFrame {
 		txtRatingCuisine.setBounds(415, 213, 172, 87);
 		getContentPane().add(txtRatingCuisine);
 		txtRatingCuisine.setColumns(10);
+		
+		JLabel lblNewLabel_2 = new JLabel("CHOOSE YOUR RESTAURANT");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel_2.setBounds(260, 27, 219, 43);
+		getContentPane().add(lblNewLabel_2);
 	}
-	
 }
