@@ -19,6 +19,7 @@ public class staffView extends JFrame {
         btnEditRestDetails.setBounds(54, 170, 172, 23);
         getContentPane().add(btnEditRestDetails);
         
+        
         JLabel lblHeader = new JLabel("Staff View");
         lblHeader.setHorizontalAlignment(SwingConstants.CENTER);
         lblHeader.setFont(new Font("Tahoma", Font.PLAIN, 16));
