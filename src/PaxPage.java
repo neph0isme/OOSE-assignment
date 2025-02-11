@@ -11,15 +11,18 @@ public class PaxPage extends JFrame {
     private JTextField emailField;
     private JButton confirmButton;
     private JButton backButton; 
+    private database db; // Instance of the database class
 
     public PaxPage() {
+        db = new database(); // Initialize the database instance
+
         setTitle("Pax Page");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
         JPanel backButtonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         backButton = new JButton("Back");
-        backButton.setPreferredSize(new Dimension(80, 30)); 
+        backButton.setPreferredSize(new Dimension(75, 20)); 
         backButtonPanel.add(backButton); 
         
         JPanel formPanel = new JPanel(new GridLayout(5, 2, 5, 5)); 
@@ -55,6 +58,10 @@ public class PaxPage extends JFrame {
                 String phone = phoneField.getText();
                 String email = emailField.getText();
                 
+                // Here you can add logic to save the booking to the database
+                // For example, you could create a new Customer object and add it to the database
+                // db.addCustomer(new Customer(...));
+
                 JOptionPane.showMessageDialog(PaxPage.this, "Booking Confirmed!\n" +
                         "Pax: " + pax + "\n" +
                         "Name: " + name + "\n" +
@@ -68,7 +75,7 @@ public class PaxPage extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 PaxPage.this.dispose();
-                new ChooseDateTimePage();
+                new ChooseDateTimePage(); // Assuming this class exists
             }
         });
 
