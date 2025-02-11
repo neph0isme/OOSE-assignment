@@ -6,8 +6,12 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
@@ -17,11 +21,12 @@ public class CustomerSignUp extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
+	private JTextField txt_fname;
+	private JTextField txt_lname;
+	private JTextField txt_phone;
+	private JTextField txt_username;
+	private JTextField txt_pass;
+	private JTextField txt_email;
 
 	/**
 	 * Launch the application.
@@ -60,26 +65,20 @@ public class CustomerSignUp extends JFrame {
 		JLabel lblNewLabel_1 = new JLabel("First Name");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_1.setBounds(105, 234, 108, 14);
+		lblNewLabel_1.setBounds(194, 214, 108, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Last Name");
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_2.setBounds(119, 274, 94, 14);
+		lblNewLabel_2.setBounds(208, 255, 94, 14);
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("Phone No.");
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_3.setBounds(119, 310, 94, 14);
+		lblNewLabel_3.setBounds(208, 294, 94, 14);
 		contentPane.add(lblNewLabel_3);
-		
-		JLabel lblNewLabel_4 = new JLabel("Address");
-		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_4.setBounds(342, 234, 80, 14);
-		contentPane.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("Username");
 		lblNewLabel_5.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -99,45 +98,84 @@ public class CustomerSignUp extends JFrame {
 		lblNewLabel_7.setBounds(231, 414, 191, 19);
 		contentPane.add(lblNewLabel_7);
 		
-		JLabel lblNewLabel_8 = new JLabel("Login");
-		lblNewLabel_8.setForeground(Color.BLUE);
-		lblNewLabel_8.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_8.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_8.setBounds(406, 414, 64, 19);
-		contentPane.add(lblNewLabel_8);
+		JLabel lbl_login = new JLabel("Login");
+		lbl_login.setForeground(Color.BLUE);
+		lbl_login.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lbl_login.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_login.setBounds(406, 414, 64, 19);
+		contentPane.add(lbl_login);
 		
-		JButton btnNewButton = new JButton("CREATE ACCOUNT");
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnNewButton.setBounds(258, 374, 175, 29);
-		contentPane.add(btnNewButton);
+		lbl_login.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                new CustomerLogin().setVisible(true); 
+                dispose(); 
+            }
+        });
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setBounds(424, 231, 125, 98);
-		contentPane.add(textArea);
+		JButton btncreateacc = new JButton("CREATE ACCOUNT");
+		btncreateacc.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btncreateacc.setBounds(258, 374, 175, 29);
+		contentPane.add(btncreateacc);
 		
-		textField = new JTextField();
-		textField.setBounds(223, 233, 96, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		txt_fname = new JTextField();
+		txt_fname.setBounds(309, 213, 124, 20);
+		contentPane.add(txt_fname);
+		txt_fname.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(223, 273, 96, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		txt_lname = new JTextField();
+		txt_lname.setBounds(309, 254, 124, 20);
+		contentPane.add(txt_lname);
+		txt_lname.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(223, 309, 96, 20);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
+		txt_phone = new JTextField();
+		txt_phone.setBounds(309, 293, 124, 20);
+		contentPane.add(txt_phone);
+		txt_phone.setColumns(10);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(309, 129, 125, 20);
-		contentPane.add(textField_3);
-		textField_3.setColumns(10);
+		txt_username = new JTextField();
+		txt_username.setBounds(309, 129, 125, 20);
+		contentPane.add(txt_username);
+		txt_username.setColumns(10);
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(309, 171, 125, 20);
-		contentPane.add(textField_4);
-		textField_4.setColumns(10);
+		txt_pass = new JTextField();
+		txt_pass.setBounds(309, 171, 125, 20);
+		contentPane.add(txt_pass);
+		txt_pass.setColumns(10);
+		
+		txt_email = new JTextField();
+		txt_email.setBounds(309, 331, 124, 20);
+		contentPane.add(txt_email);
+		txt_email.setColumns(10);
+		
+		JLabel lbl_email = new JLabel("Email");
+		lbl_email.setHorizontalAlignment(SwingConstants.RIGHT);
+		lbl_email.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lbl_email.setBounds(253, 332, 49, 14);
+		contentPane.add(lbl_email);
+		
+		btncreateacc.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Retrieve User Inputs
+                String firstName = txt_fname.getText();
+                String lastName = txt_lname.getText();
+                String phone = txt_phone.getText();
+                String username = txt_username.getText();
+                String password = txt_pass.getText();
+                String email = txt_email.getText();
+                // Create a New Customer Object
+                Customer newCustomer = new Customer(username, firstName + " " + lastName, email, phone, password);
+
+                // Add the new customer to the database
+                database db = new database();
+                db.addCustomer(newCustomer);
+
+                // Optionally, show a confirmation message
+                JOptionPane.showMessageDialog(null, "Account is created!");
+
+                // Navigate to the login page after successful account creation
+                new CustomerLogin().setVisible(true);
+                dispose();  // Close the current frame
+            }
+        });
 	}
 }

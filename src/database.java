@@ -97,7 +97,7 @@ public class database {
 
 	public static Customer getCustomer(String custID, String password) {
 		for (Customer customer : customerList) {
-			if (customer.getCustID().equals(custID) &&
+			if (customer.getUserID().equals(custID) &&
 				customer.getPassword().equals(password)) {
 				return customer;
 			}
