@@ -1,19 +1,17 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class StaffBookingList extends JFrame {
     
     private JTable bookingTable;
     private DefaultTableModel tableModel;
-    private JTextField paxField;
-    private JTextField nameField;
-    private JTextField phoneField;
-    private JTextField emailField;
+    private database db; // Instance of the database class
 
     public StaffBookingList() {
+        db = new database(); // Initialize the database instance
+
         setTitle("Staff Booking List");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
@@ -27,42 +25,12 @@ public class StaffBookingList extends JFrame {
         JScrollPane scrollPane = new JScrollPane(bookingTable);
         add(scrollPane, BorderLayout.CENTER);
 
-        // Create a panel for adding new bookings
-        JPanel inputPanel = new JPanel(new GridLayout(5, 2));
-        inputPanel.add(new JLabel("Choose Pax: "));
-        paxField = new JTextField();
-        inputPanel.add(paxField);
-        
-        inputPanel.add(new JLabel("Name: "));
-        nameField = new JTextField();
-        inputPanel.add(nameField);
-        
-        inputPanel.add(new JLabel("Phone: "));
-        phoneField = new JTextField();
-        inputPanel.add(phoneField);
-        
-        inputPanel.add(new JLabel("Email: "));
-        emailField = new JTextField();
-        inputPanel.add(emailField);
-        
-        JButton addButton = new JButton("Add Booking");
-        inputPanel.add(addButton);
-        
-        add(inputPanel, BorderLayout.NORTH); // Add input panel to the top
-
         // Create a button panel
         JPanel buttonPanel = new JPanel();
         JButton refreshButton = new JButton("Refresh");
         JButton closeButton = new JButton("Close");
 
         // Add action listeners
-        addButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                addBooking();
-            }
-        });
-
         refreshButton.addActionListener(e -> refreshBookingList());
         closeButton.addActionListener(e -> dispose()); // Close the window
 
@@ -70,36 +38,31 @@ public class StaffBookingList extends JFrame {
         buttonPanel.add(closeButton);
         add(buttonPanel, BorderLayout.SOUTH);
 
+        // Load initial booking data
+        refreshBookingList();
+
         pack();
         setLocationRelativeTo(null); // Center the frame
         setVisible(true);
     }
 
-    private void addBooking() {
-        String pax = paxField.getText();
-        String name = nameField.getText();
-        String phone = phoneField.getText();
-        String email = emailField.getText();
-
-        // Validate input
-        if (pax.isEmpty() || name.isEmpty() || phone.isEmpty() || email.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "All fields must be filled out.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        // Add the new booking to the table
-        tableModel.addRow(new Object[]{pax, name, phone, email});
-
-        // Clear input fields
-        paxField.setText("");
-        nameField.setText("");
-        phoneField.setText("");
-        emailField.setText("");
-    }
-
     private void refreshBookingList() {
-        // In a real application, you would refresh the data from the database
-        JOptionPane.showMessageDialog(this, "Booking list refreshed!");
+        // Clear the current table data
+        tableModel.setRowCount(0);
+
+        // Retrieve customers from the database
+        ArrayList<Customer> customers = db.getCustomers(); // Assuming this method returns a list of customers
+
+        // Populate the table with customer data
+        for (Customer customer : customers) {
+            // Assuming you want to display the customer's details
+            tableModel.addRow(new Object[]{
+                "1", // Pax - You can replace this with actual pax data if available
+                customer.getName(),
+                customer.getPhoneNumber(),
+                customer.getEmail()
+            });
+        }
     }
 
     public static void main(String[] args) {
