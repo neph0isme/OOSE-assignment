@@ -8,12 +8,14 @@ public class selectPicture extends JFrame {
     private JTextField txtRatingCuisine;
 
     public selectPicture() {
+    	getContentPane().setBackground(new Color(128, 255, 255));
         getContentPane().setLayout(null);
 
         JLabel lblNewLabel = new JLabel("PIC1");
         lblNewLabel.setIcon(new ImageIcon("C:\\Users\\ASUS\\OneDrive - Universiti Kebangsaan Malaysia\\Pictures\\saje.jpg"));
         lblNewLabel.setBounds(40, 108, 343, 87);
         getContentPane().add(lblNewLabel);
+		setLocationRelativeTo(null);
 
         JLabel lblNewLabel_1 = new JLabel("PIC2");
         lblNewLabel_1.setBounds(40, 213, 343, 87);
@@ -50,12 +52,15 @@ public class selectPicture extends JFrame {
         JButton btnNewButton_1 = new JButton("Choose");
         btnNewButton_1.setBounds(575, 246, 85, 21);
         getContentPane().add(btnNewButton_1);
+ 
 
         btnNewButton_1.addActionListener(e -> {
             new ChooseDateTimePage().setVisible(true); 
             dispose(); 
         });
-
+        
+       
+      
         setTitle("Select Picture");
         setSize(700, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

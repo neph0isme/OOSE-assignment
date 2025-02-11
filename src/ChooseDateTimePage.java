@@ -4,11 +4,12 @@ import java.awt.event.ActionListener;
 
 public class ChooseDateTimePage extends JFrame {
     public ChooseDateTimePage() {
-        getContentPane().setBackground(new Color(255, 128, 128));
+        getContentPane().setBackground(new Color(128, 255, 255));
         setTitle("Choose Date & Time");
         setSize(600, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
+        setLocationRelativeTo(null);
 
         // Back Button
         JButton btnBack = new JButton("Back");
