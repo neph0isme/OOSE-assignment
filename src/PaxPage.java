@@ -40,7 +40,7 @@ public class PaxPage extends JFrame {
 
         formPanel.add(paxLabel);
         
-        JSpinner spinner = new JSpinner();
+        JSpinner spinner = new JSpinner(new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1));
         formPanel.add(spinner);
         formPanel.add(nameLabel);
         formPanel.add(nameField);
