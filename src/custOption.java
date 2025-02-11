@@ -2,10 +2,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class custOption extends JFrame {
 	
-    public custOption(Customer customer) {
+    public custOption(ArrayList<Customer> arrayList) {
         getContentPane().setBackground(new Color(128, 255, 255));
         setTitle("Pick Your Options");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -26,7 +27,7 @@ public class custOption extends JFrame {
         lblText.setBounds(54, 57, 76, 14);
         getContentPane().add(lblText);
 
-        JLabel lblName = new JLabel(customer != null ? customer.getName() : "Guest");
+        JLabel lblName = new JLabel(arrayList != null ? arrayList.getName() : "Guest");
         lblName.setBounds(140, 57, 103, 14);
         getContentPane().add(lblName);
 

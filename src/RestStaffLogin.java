@@ -26,9 +26,7 @@ public class RestStaffLogin extends JFrame {
 	private database db = new database();
 	
 
-	/**
-	 * Launch the application.
-	 */
+	/*
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -41,7 +39,7 @@ public class RestStaffLogin extends JFrame {
 				}
 			}
 		});
-	}
+	} */
 
 	/**
 	 * Create the frame.

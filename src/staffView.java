@@ -13,7 +13,6 @@ public class staffView extends JFrame {
 	    this.staffID = staffID;
 		Restaurant rest = db.getRestaurantByStaffID(staffID); // Implement this method
 		
-		
 		setTitle("Staff View");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(300, 300);
