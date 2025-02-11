@@ -1,19 +1,31 @@
 
 public class Restaurant {
+	private String restaurantID;
 	private String restaurantName;
 	private String location;
 	private int restPax;
 	private double rating;
 	private String cuisine;
+	private String staffID;
 
 	//(nama rest, type of cuisine, location, numofpax, rating)
-	public Restaurant(String restaurantName, String cuisine, String location, int restPax, double rating) {
+	public Restaurant(String restaurantID, String restaurantName, String cuisine, String location, int restPax, double rating, String staffID) {
+		this.restaurantID = restaurantID;
 		this.restaurantName = restaurantName;
 		this.location = location;
 		this.restPax = restPax;
 		this.cuisine = cuisine;
 		this.rating = rating;
+		this.staffID = staffID;
 	}
+	
+	public String getStaffID() {
+		return staffID;
+	}
+	
+	public String getRestaurantID() {
+        return restaurantID;
+    }
 	
 	public String getName() {
         return restaurantName;

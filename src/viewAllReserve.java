@@ -6,8 +6,13 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class viewAllReserve extends JFrame {
+	
+	private static String staffID;
 
-    public viewAllReserve(database db) {
+    public viewAllReserve(database db, String staffID) {
+    	
+    	this.staffID = staffID;
+    	
         setTitle("View All Reservations");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(856, 600);
@@ -52,7 +57,7 @@ public class viewAllReserve extends JFrame {
         btnBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new staffView().setVisible(true);
+                new staffView(db, staffID).setVisible(true);
                 dispose();
             }
         });
@@ -60,6 +65,6 @@ public class viewAllReserve extends JFrame {
 
     public static void main(String[] args) {
         database db = new database(); // Initialize database
-        SwingUtilities.invokeLater(() -> new viewAllReserve(db).setVisible(true));
+        SwingUtilities.invokeLater(() -> new viewAllReserve(db, staffID).setVisible(true));
     }
 }

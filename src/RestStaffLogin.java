@@ -101,7 +101,7 @@ public class RestStaffLogin extends JFrame {
 
                 if (db.validateStaffLogin(restID, password)) {
                     JOptionPane.showMessageDialog(null, "Login Successful!");
-                    new staffView(db).setVisible(true);
+                    new staffView(db, restID).setVisible(true);
                     dispose(); 
                     
                 } else {

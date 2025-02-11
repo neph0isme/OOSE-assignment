@@ -7,16 +7,16 @@ public class database {
     private static ArrayList<Reservation> reservations = new ArrayList<>();
 
     // Pre-Stored Staff Login info:
-    Staff staff1 = new Staff("R001", "Amiezah", "rest123");
-    Staff staff2 = new Staff("R002", "Harris", "rest456");
+    Staff staff1 = new Staff("R001", "Amiezah", "rest123", "REST1");
+    Staff staff2 = new Staff("R002", "Harris", "rest456", "REST2");
 
     // Pre-Stored Customers:
     Customer c1 = new Customer("liana02", "Liana Johari", "liana@gmail.com", "0122234466", "121212");
     Customer c2 = new Customer("zulanep", "Zulhanif Ramli", "zul@gmail.com", "0165523433", "110404");
 
     // Pre-Stored Restaurant info:
-    Restaurant rest1 = new Restaurant("Sushi Paradise", "Japanese Cuisine", "Shah Alam, Selangor", 80, 0.0);
-    Restaurant rest2 = new Restaurant("Pasta Anjay", "Italian Cuisine", "Nilai, Negeri Sembilan", 60, 0.0);
+    Restaurant rest1 = new Restaurant("REST1","Sushi Paradise", "Japanese Cuisine", "Shah Alam, Selangor", 80, 0.0, "R001");
+    Restaurant rest2 = new Restaurant("REST2","Pasta Anjay", "Italian Cuisine", "Nilai, Negeri Sembilan", 60, 0.0, "R002");
 
     // Pre-Stored Reservations:
     Reservation reserve1 = new Reservation("B001", "R001", 4, "Zulhanif Ramli", "0165523433", "zul@gmail.com", true);
@@ -101,11 +101,25 @@ public class database {
     
     public void updateRestaurant(Restaurant updatedRestaurant) {
 	    for (int i = 0; i < restaurants.size(); i++) {
-	        if (restaurants.get(i).getName().equals(updatedRestaurant.getName())) { // Assuming name is unique
+	        if (restaurants.get(i).getRestaurantID().equals(updatedRestaurant.getRestaurantID())) { // Assuming name is unique
 	            restaurants.set(i, updatedRestaurant);
 	            break;
 	        }
 	    }
+    }
+    
+    public Restaurant getRestaurantByStaffID(String staffID) {
+        for (Staff s : staffList) {
+            if (s.getUserID().equals(staffID)) {
+                String restaurantID = s.getRestaurantID();
+                for (Restaurant r : restaurants) {
+                    if (r.getRestaurantID().equals(restaurantID)) {
+                        return r;
+                    }
+                }
+            }
+        }
+        return null; // If no restaurant found
     }
 }
 
