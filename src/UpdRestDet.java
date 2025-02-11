@@ -12,7 +12,6 @@ public class UpdRestDet extends JFrame {
     private JTextField cuisineTypeField;
     private JTextField locationField;
     private JSpinner paxSpinner;
-    private JSpinner ratingSpinner;
     private database db;
     private Restaurant restaurant;
 
@@ -71,10 +70,6 @@ public class UpdRestDet extends JFrame {
         ratingLabel.setBounds(50, 230, 120, 25);
         contentPane.add(ratingLabel);
 
-        ratingSpinner = new JSpinner(new SpinnerNumberModel(restaurant.getRating(), 0.0, 5.0, 0.5));
-        ratingSpinner.setBounds(180, 230, 50, 25);
-        contentPane.add(ratingSpinner);
-
         JButton saveButton = new JButton("Save");
         saveButton.setBounds(150, 300, 100, 30);
         saveButton.addActionListener(new ActionListener() {
@@ -89,6 +84,10 @@ public class UpdRestDet extends JFrame {
         cancelButton.setBounds(270, 300, 100, 30);
         cancelButton.addActionListener(e -> dispose());
         contentPane.add(cancelButton);
+        
+        JLabel lblrating = new JLabel(String.valueOf(restaurant.getRating())); // Display actual rating
+        lblrating.setBounds(180, 235, 49, 14);
+        contentPane.add(lblrating);
     }
 
     private void saveRestaurantDetails() {
@@ -96,8 +95,9 @@ public class UpdRestDet extends JFrame {
         restaurant.setCuisineType(cuisineTypeField.getText());
         restaurant.setLocation(locationField.getText());
         restaurant.setRestPax((int) paxSpinner.getValue());
-        restaurant.setRating((double) ratingSpinner.getValue());
+        //restaurant.setRating((double) ratingSpinner.getValue());
 
+        db.updateRestaurant(restaurant);
         //System.out.println(restaurant.getRating());
         JOptionPane.showMessageDialog(this, "Restaurant details updated successfully!");
     }
