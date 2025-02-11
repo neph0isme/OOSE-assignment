@@ -98,6 +98,15 @@ public class database {
     public void addReservation(Reservation reservation) {
         reservations.add(reservation);
     }
+    
+    public void updateRestaurant(Restaurant updatedRestaurant) {
+	    for (int i = 0; i < restaurants.size(); i++) {
+	        if (restaurants.get(i).getName().equals(updatedRestaurant.getName())) { // Assuming name is unique
+	            restaurants.set(i, updatedRestaurant);
+	            break;
+	        }
+	    }
+    }
 }
 
 

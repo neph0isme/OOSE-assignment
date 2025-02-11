@@ -5,6 +5,12 @@ import java.awt.event.ActionListener;
 
 public class staffView extends JFrame {
 	public staffView() {
+		database db = new database();
+		//Restaurant rest;
+		
+		 // Initialize a restaurant (assuming it's the first one in the database for now)
+        Restaurant rest = db.getRestaurants().size() > 0 ? db.getRestaurants().get(0) : null;
+		
 		setTitle("Staff View");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(300, 300);
@@ -33,7 +39,15 @@ public class staffView extends JFrame {
         btnAllRes.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new viewAllReserve().setVisible(true);
+                new viewAllReserve(db).setVisible(true);
+                dispose();
+            }
+        });
+        
+        btnEditRestDetails.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new UpdRestDet(db, rest).setVisible(true);
                 dispose();
             }
         });
