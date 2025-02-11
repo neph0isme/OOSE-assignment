@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 
 public class staffView extends JFrame {
 	public staffView() {
+		database db = new database();
+		
 		setTitle("Staff View");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(300, 300);
@@ -32,7 +34,7 @@ public class staffView extends JFrame {
         btnAllRes.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new viewAllReserve().setVisible(true);
+                new viewAllReserve(null).setVisible(true);
                 dispose();
             }
         });
