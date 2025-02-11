@@ -14,18 +14,21 @@ public class PaxPage extends JFrame {
     private database db;
 
     public PaxPage() {
+    	setBackground(new Color(128, 255, 255));
         db = new database(); 
 
         setTitle("Pax Page");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new BorderLayout());
+        getContentPane().setLayout(new BorderLayout());
 
         JPanel backButtonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        backButtonPanel.setBackground(new Color(128, 255, 255));
         backButton = new JButton("Back");
         backButton.setPreferredSize(new Dimension(75, 20)); 
         backButtonPanel.add(backButton); 
         
         JPanel formPanel = new JPanel(new GridLayout(5, 2, 5, 5)); 
+        formPanel.setBackground(new Color(128, 255, 255));
         JLabel paxLabel = new JLabel("Choose pax: ");
         paxField = new JTextField(5);
         JLabel nameLabel = new JLabel("Name: ");
@@ -49,12 +52,13 @@ public class PaxPage extends JFrame {
         
         // Create a panel for the confirm button
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        buttonPanel.setBackground(new Color(128, 255, 255));
         buttonPanel.add(confirmButton);
         formPanel.add(new JLabel()); // Empty label for spacing
         formPanel.add(buttonPanel); // Add button panel to form
 
-        add(backButtonPanel, BorderLayout.NORTH); 
-        add(formPanel, BorderLayout.CENTER); 
+        getContentPane().add(backButtonPanel, BorderLayout.NORTH); 
+        getContentPane().add(formPanel, BorderLayout.CENTER); 
         
         confirmButton.addActionListener(new ActionListener() {
             @Override
