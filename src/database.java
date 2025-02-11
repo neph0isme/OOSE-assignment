@@ -37,17 +37,6 @@ public class database {
     }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     /*Restaurant info:
     (nama rest, type of cuisine, location, numofpax, rating)*/
     
@@ -93,6 +82,10 @@ public class database {
         customerList.add(customer);
     }
 
+    public ArrayList<Restaurant> getRestaurants() {
+        return restaurants;
+    }
+    
     public void addStaff(Staff staff) {
         staffList.add(staff);
     }
