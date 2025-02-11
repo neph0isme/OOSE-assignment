@@ -26,7 +26,7 @@ public class custOption extends JFrame {
         JButton btnViewReserve = new JButton("View Reserve");
         btnViewReserve.setBounds(67, 174, 158, 23);
         getContentPane().add(btnViewReserve);
-
+        
         JLabel lblText = new JLabel("Welcome,");
         lblText.setHorizontalAlignment(SwingConstants.TRAILING);
         lblText.setBounds(54, 57, 76, 14);

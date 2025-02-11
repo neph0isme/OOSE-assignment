@@ -119,7 +119,7 @@ public class CustomerLogin extends JFrame {
 		btnlogin.addActionListener(e -> {
             String username = txt_username.getText();
             String password = txt_pass.getText();
-
+            
             Customer loggedInCustomer = db.getCustomerByUsername(username);
             
             if (db.validateCustomerLogin(username, password)) {
