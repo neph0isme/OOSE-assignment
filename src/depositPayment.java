@@ -3,31 +3,13 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class depositPayment extends JFrame {
-<<<<<<< HEAD
-    
-	public depositPayment() {
-        // Create the main frame with BorderLayout
-        JFrame frame = new JFrame("Deposit Payment");
-        frame.setSize(400, 450);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLayout(new BorderLayout());
-=======
     public depositPayment() {
     	setBackground(new Color(128, 255, 255));
         // Set up frame properties
         setTitle("Deposit Payment");
         setSize(400, 450);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-        setLayout(new BorderLayout());
->>>>>>> d0ada5af7384647071652e693ba37d9d1e000070
-=======
         getContentPane().setLayout(new BorderLayout());
->>>>>>> Stashed changes
-=======
-        getContentPane().setLayout(new BorderLayout());
->>>>>>> Stashed changes
 
         // ----------------- Top Panel (Title) -----------------
         JPanel topPanel = new JPanel();
