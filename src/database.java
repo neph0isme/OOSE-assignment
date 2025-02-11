@@ -61,6 +61,8 @@ public class database {
     /*reservation 
      (reservationid, restaurantid, reservepax, custname, nophone, email, status)*/
     Reservation reserve1 = new Reservation("B001", "R001", 4, "Zulhanif Ramli", "0165523433", "zul@gmail.com", true);
+    
+    
     /*reservation (pov staff)
     (reservationid, reservepax, custname, nophone, email, status)*/
     
