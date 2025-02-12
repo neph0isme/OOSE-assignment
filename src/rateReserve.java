@@ -7,6 +7,7 @@ import javax.swing.*;
 public class rateReserve extends JFrame {
 	
     public rateReserve() {
+    	getContentPane().setBackground(new Color(128, 255, 255));
     	
         setTitle("Reservation Rating");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

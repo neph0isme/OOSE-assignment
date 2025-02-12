@@ -13,6 +13,7 @@ public class viewReserve extends JFrame {
 	private static Customer loggedInCustomer;
 	
     public viewReserve(Customer customer) {
+    	getContentPane().setBackground(new Color(128, 255, 255));
     	
     	
     	this.loggedInCustomer = customer;
