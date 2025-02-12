@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -6,6 +8,8 @@ import java.awt.event.ActionListener;
 public class viewReserve extends JFrame {
 	private static CustomerController customerController;
 	private database db = new database();
+	private DefaultTableModel tableModel;
+	private JTable bookingTable;
 	private static Customer loggedInCustomer;
 	
     public viewReserve(CustomerController customerController, Customer customer) {
@@ -15,7 +19,7 @@ public class viewReserve extends JFrame {
     	
         setTitle("View Reservation");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(600, 300);
+        setSize(600, 376);
         setLocationRelativeTo(null); // Centers the window on the screen
         getContentPane().setLayout(null);
 
@@ -26,24 +30,28 @@ public class viewReserve extends JFrame {
         getContentPane().add(lblNewLabel);
 
         JButton btnCancel = new JButton("CANCEL");
-        btnCancel.setBounds(59, 189, 115, 45);
+        btnCancel.setBounds(59, 258, 115, 45);
         getContentPane().add(btnCancel);
 
         JButton btnEdit = new JButton("EDIT");
-        btnEdit.setBounds(244, 189, 115, 45);
+        btnEdit.setBounds(234, 258, 115, 45);
         getContentPane().add(btnEdit);
 
         JButton btnRate = new JButton("RATE");
-        btnRate.setBounds(417, 189, 115, 45);
+        btnRate.setBounds(420, 258, 115, 45);
         getContentPane().add(btnRate);
 
         JButton btnBack = new JButton("BACK");
         btnBack.setBounds(10, 11, 89, 23);
         getContentPane().add(btnBack);
-
-        JTextArea textArea = new JTextArea();
-        textArea.setBounds(64, 131, 468, 22);
-        getContentPane().add(textArea);
+        
+        String[] columnNames = {"Pax", "Name", "Phone", "Email"};
+        tableModel = new DefaultTableModel(columnNames, 0);
+        bookingTable = new JTable(tableModel);
+        
+        JScrollPane scrollPane = new JScrollPane();
+        scrollPane.setBounds(59, 116, 468, 114);
+        getContentPane().add(scrollPane);
 
         // Add action listeners to the buttons
         btnCancel.addActionListener(new ActionListener() {
