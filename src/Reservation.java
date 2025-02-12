@@ -30,21 +30,21 @@ public class Reservation {
 	
 	//start time, end time
 	
-	public String getendTime() {
+	public String getEndTime() {
 		return endTime;
 		
 	}
 	
-	public void setendTime() {
+	public void setEndTime(String selectedEndTime) {
 		this.endTime = endTime;
 	}
 	
-	public String getstartTime() {
+	public String getStartTime() {
 		return startTime;
 		
 	}
 	
-	public void setstartTime() {
+	public void setStartTime(String selectedStartTime) {
 		this.startTime = startTime;
 	}
 	
@@ -54,7 +54,7 @@ public class Reservation {
 		
 	}
 	
-	public void setDate() {
+	public void setDate(String selectedDate) {
 		this.date = date;
 	}
 	

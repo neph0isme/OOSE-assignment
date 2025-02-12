@@ -94,9 +94,26 @@ public class ChooseDateTimePage extends JFrame {
         JButton btnNext = new JButton("Next");
         btnNext.setBounds(276, 319, 83, 21);
         btnNext.addActionListener(e -> {
-            new PaxPage().setVisible(true); // Open paxPage GUI
+            // Get selected date
+            String selectedYear = (String) comboBoxYear.getSelectedItem();
+            String selectedMonth = (String) comboBoxMonth.getSelectedItem();
+            String selectedDay = (String) comboBoxDay.getSelectedItem();
+            String selectedDate = selectedDay + " " + selectedMonth + " " + selectedYear;
+
+            // Get selected time
+            String selectedStartTime = (String) comboBoxFrom.getSelectedItem();
+            String selectedEndTime = (String) comboBoxTo.getSelectedItem();
+
+            // Update the reservation with selected date and time
+            reservation.setDate(selectedDate);
+            reservation.setStartTime(selectedStartTime);
+            reservation.setEndTime(selectedEndTime);
+
+            // Proceed to next page (PaxPage)
+            new PaxPage(reservation, db).setVisible(true);
             dispose(); // Close current window
         });
+
         getContentPane().add(btnNext);
     }
 

@@ -9,11 +9,13 @@ public class PaxPage extends JFrame {
     private JTextField emailField;
     private JButton confirmButton;
     private JButton backButton; 
-    private database db;
+    private static database db;
+	private static Reservation reservation;
 
-    public PaxPage() {
+    public PaxPage(Reservation reservation, database db) {
     	setBackground(new Color(128, 255, 255));
-        db = new database(); 
+    	this.reservation = reservation;
+        this.db = new database(); 
 
         setTitle("Pax Page");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -72,7 +74,7 @@ public class PaxPage extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 PaxPage.this.dispose();
-                new ChooseDateTimePage().setVisible(true); // Assuming this class exists
+                new ChooseDateTimePage(reservation, db).setVisible(true); // Assuming this class exists
             }
         });
 
@@ -82,6 +84,6 @@ public class PaxPage extends JFrame {
     }
     
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new PaxPage());
+        SwingUtilities.invokeLater(() -> new PaxPage(reservation, db));
     }
 }
