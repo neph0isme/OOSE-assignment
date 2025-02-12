@@ -24,7 +24,7 @@ public class CustomerLogin extends JFrame {
 	private JPanel contentPane;
 	private JTextField txt_username;
 	private JTextField txt_pass;
-	private database db = new database();
+	private database db;
 
 	
 
@@ -124,7 +124,7 @@ public class CustomerLogin extends JFrame {
             
             if (db.validateCustomerLogin(username, password)) {
                 JOptionPane.showMessageDialog(this, "Login Successful");
-                new custOption(loggedInCustomer).setVisible(true);
+                new custOption(loggedInCustomer, db).setVisible(true);
                 dispose();
             } else {
                 JOptionPane.showMessageDialog(this, "Login Unsuccessfull");

@@ -4,7 +4,7 @@ import java.awt.event.ActionListener;
 
 public class ChooseDateTimePage extends JFrame {
     private static Reservation reservation;
-    private static database db;
+    private static database db = new database();
 	
 	public ChooseDateTimePage(Reservation reservation, database db) {
     	this.reservation = reservation;
@@ -99,19 +99,26 @@ public class ChooseDateTimePage extends JFrame {
             String selectedMonth = (String) comboBoxMonth.getSelectedItem();
             String selectedDay = (String) comboBoxDay.getSelectedItem();
             String selectedDate = selectedDay + " " + selectedMonth + " " + selectedYear;
-
+            
+           
             // Get selected time
             String selectedStartTime = (String) comboBoxFrom.getSelectedItem();
             String selectedEndTime = (String) comboBoxTo.getSelectedItem();
 
-            // Update the reservation with selected date and time
-            reservation.setDate(selectedDate);
-            reservation.setStartTime(selectedStartTime);
-            reservation.setEndTime(selectedEndTime);
+         // Check if reservation is not null
+            if (reservation != null) {
+                // Update the reservation with selected date and time
+                reservation.setStartTime(selectedStartTime);
+                reservation.setEndTime(selectedEndTime);
+                reservation.setDate(selectedDate);
 
-            // Proceed to next page (PaxPage)
-            new PaxPage(reservation, db).setVisible(true);
-            dispose(); // Close current window
+                // Proceed to next page (PaxPage)
+                new PaxPage(reservation, db).setVisible(true);
+                dispose(); // Close current window
+            } else {
+                // Handle the case where reservation is null
+                JOptionPane.showMessageDialog(this, "Reservation is not initialized.");
+            }
         });
 
         getContentPane().add(btnNext);
@@ -119,6 +126,7 @@ public class ChooseDateTimePage extends JFrame {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
+        	Reservation reservation = new Reservation("sample", "RestaurantID", 2, "", "", "", "John Doe", "1234567890", "john@example.com", true);
             new ChooseDateTimePage(reservation, db).setVisible(true);
         });
     }

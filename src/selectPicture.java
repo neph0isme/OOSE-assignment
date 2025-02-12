@@ -1,8 +1,12 @@
-import java.awt.*;
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class selectPicture extends JFrame {
-    private database db = new database();
+    
+    private Reservation reservation;
+	private database db;
 
     public selectPicture(database db) {
         this.db = db; // Pass the database instance
@@ -35,8 +39,9 @@ public class selectPicture extends JFrame {
         getContentPane().add(btnRest1);
 
         btnRest1.addActionListener(e -> {
-            Reservation newReservation = new Reservation(generateNewReservationID(), "R001", 0, "", "", "", "", "", "", false);
-            new ChooseDateTimePage(newReservation, db).setVisible(true);
+        	String selectedRestID = "R001";
+            reservation = new Reservation(generateNewReservationID(), selectedRestID, 0, "", "", "", "", "", "", false);
+            new ChooseDateTimePage(reservation, db).setVisible(true);
             dispose();
         });
 
@@ -66,8 +71,9 @@ public class selectPicture extends JFrame {
         getContentPane().add(lblNewLabel_3_3);
 
         btnRest2.addActionListener(e -> {
-            Reservation newReservation = new Reservation(generateNewReservationID(), "R002", 0, "", "", "", "", "", "", false);
-            new ChooseDateTimePage(newReservation, db).setVisible(true);
+        	String selectedRestID = "R002";
+            Reservation reservation = new Reservation(generateNewReservationID(), selectedRestID, 0, "", "", "", "", "", "", false);
+            new ChooseDateTimePage(reservation, db).setVisible(true);
             dispose();
         });
 
@@ -94,3 +100,12 @@ public class selectPicture extends JFrame {
     	    return String.format("B%03d", nextId);
     }
 }
+
+
+public static void main(String[] args) {
+        database db = new database(); // Create a single instance of the database
+        SwingUtilities.invokeLater(() -> {
+            new selectPicture(db).setVisible(true); // Pass the database instance
+        });
+}
+

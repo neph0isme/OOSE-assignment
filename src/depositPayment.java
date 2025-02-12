@@ -3,7 +3,10 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class depositPayment extends JFrame {
-    public depositPayment() {
+    private Reservation reservation;
+	private database db;
+
+	public depositPayment() {
     	//this.db = 
     	
     	setBackground(new Color(128, 255, 255));
@@ -67,7 +70,7 @@ public class depositPayment extends JFrame {
         cardButton.addActionListener(e -> handleCardPayment(selectedPaymentMethod, doneButton));
 
         backButton.addActionListener(e -> {
-            new PaxPage().setVisible(true);  // Ensure PaxPage is implemented
+            new PaxPage(reservation, db).setVisible(true);  // Ensure PaxPage is implemented
             dispose();
         });
 

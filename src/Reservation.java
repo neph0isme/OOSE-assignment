@@ -8,9 +8,9 @@ public class Reservation {
     private String custphone;
     private String custemail;
     private boolean reserveStatus;
-	private String date;
 	private String startTime;
 	private String endTime;
+	private String date;
 	
 	//(reservationid, restaurantid, reservepax, custname, nophone, email, status)
 	public Reservation(String reserveID, String restID, int reservePax, String date, String startTime, String endTime, String custname, String custphone, String custemail, Boolean reserveStatus) {
@@ -18,7 +18,6 @@ public class Reservation {
 		this.reserveID = reserveID;
         this.restID = restID;
         this.reservePax = reservePax;
-        this.date = date;
         this.startTime = startTime;
         this.endTime = endTime;
         this.custname = custname;
@@ -36,7 +35,8 @@ public class Reservation {
 	}
 	
 	public void setEndTime(String selectedEndTime) {
-		this.endTime = endTime;
+		endTime = selectedEndTime;
+		
 	}
 	
 	public String getStartTime() {
@@ -45,17 +45,17 @@ public class Reservation {
 	}
 	
 	public void setStartTime(String selectedStartTime) {
-		this.startTime = startTime;
+		startTime = selectedStartTime;
 	}
 	
 	
 	public String getDate() {
-		return reserveID;
+		return date;
 		
 	}
 	
 	public void setDate(String selectedDate) {
-		this.date = date;
+		date = selectedDate;
 	}
 	
 	public String getReserveID() {
@@ -71,7 +71,7 @@ public class Reservation {
     }
 
     public void setRestaurantID(String restaurantID) {
-        this.restID = restID;
+        restID = restaurantID;
     }
 
     public int getReservePax() {
@@ -87,7 +87,7 @@ public class Reservation {
     }
 
     public void setCustName(String custName) {
-        this.custname = custname;
+        custname = custName;
     }
 
     public String getCustPhone() {
@@ -95,7 +95,7 @@ public class Reservation {
     }
 
     public void setCustPhone(String custPhone) {
-        this.custphone = custphone;
+        custphone = custPhone;
     }
 
     public String getCustEmail() {
@@ -103,7 +103,7 @@ public class Reservation {
     }
 
     public void setCustEmail(String custEmail) {
-        this.custemail = custemail;
+        custemail = custEmail;
     }
 
     public boolean isReserveStatus() {
