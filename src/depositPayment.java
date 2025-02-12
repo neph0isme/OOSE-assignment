@@ -4,13 +4,13 @@ import java.awt.event.ActionListener;
 
 public class depositPayment extends JFrame {
     private Reservation reservation;
-	private database db;
+    private database db;
 
-	public depositPayment() {
-    	//this.db = 
-    	
-    	setBackground(new Color(128, 255, 255));
-        // Set up frame properties
+    public depositPayment(Reservation reservation, database db) { // ✅ Add constructor with parameters
+        this.reservation = reservation;
+        this.db = db;
+
+        setBackground(new Color(128, 255, 255));
         setTitle("Deposit Payment");
         setSize(400, 450);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -27,7 +27,6 @@ public class depositPayment extends JFrame {
         JPanel centerPanel = new JPanel(new GridLayout(4, 1, 10, 10));
         centerPanel.setBackground(new Color(128, 255, 255));
         JLabel methodLabel = new JLabel("Choose Payment Method:", SwingConstants.CENTER);
-        methodLabel.setBackground(new Color(128, 255, 255));
         methodLabel.setFont(new Font("Arial", Font.PLAIN, 14));
         centerPanel.add(methodLabel);
 
@@ -44,7 +43,7 @@ public class depositPayment extends JFrame {
         bottomPanel.setBackground(new Color(128, 255, 255));
         JButton backButton = new JButton("Back");
         JButton doneButton = new JButton("Done");
-        doneButton.setEnabled(false);  // Initially disabled
+        doneButton.setEnabled(false); // Initially disabled
 
         bottomPanel.add(backButton);
         bottomPanel.add(doneButton);
@@ -70,16 +69,15 @@ public class depositPayment extends JFrame {
         cardButton.addActionListener(e -> handleCardPayment(selectedPaymentMethod, doneButton));
 
         backButton.addActionListener(e -> {
-            new PaxPage(reservation, db).setVisible(true);  // Ensure PaxPage is implemented
+            new PaxPage(reservation, db).setVisible(true); // ✅ Correctly pass reservation & db
             dispose();
         });
 
         doneButton.addActionListener(e -> {
             JOptionPane.showMessageDialog(this, "Reservation Details - Customer information has been saved.", "Reservation Confirmation", JOptionPane.INFORMATION_MESSAGE);
-            new custOption(null).setVisible(true);  // Navigate to custOption interface
-            dispose();  // Close PaxPage
+            new custOption(null).setVisible(true);
+            dispose();
         });
-
 
         setLocationRelativeTo(null);
         setVisible(true);
@@ -123,9 +121,5 @@ public class depositPayment extends JFrame {
             JOptionPane.showMessageDialog(this, "Payment details saved.\nDeposit Payment Successful!");
             doneButton.setEnabled(true);
         }
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(depositPayment::new);
     }
 }

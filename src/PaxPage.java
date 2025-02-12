@@ -65,7 +65,7 @@ public class PaxPage extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
             	PaxPage.this.dispose();
-                new depositPayment().setVisible(true);
+                new depositPayment(reservation, db).setVisible(true);
             }
         });
 
@@ -83,7 +83,5 @@ public class PaxPage extends JFrame {
         setVisible(true);
     }
     
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new PaxPage(reservation, db));
-    }
+    
 }
