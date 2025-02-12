@@ -81,7 +81,7 @@ public class viewReserve extends JFrame {
         btnBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new custOption(loggedInCustomer).setVisible(true);
+                new custOption(loggedInCustomer, db).setVisible(true);
                 dispose();
             }
         });

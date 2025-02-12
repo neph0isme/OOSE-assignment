@@ -20,7 +20,7 @@ public class custOption extends JFrame {
 	private static database db;
 	
     public custOption(Customer customer, database db) {
-    	this.db = db;
+    	this.db = new database();
     	
     	//Customer firstCustomer = customers.isEmpty() ? null : customers.get(0); // Get first customer or null
         //String customerName = (firstCustomer != null) ? firstCustomer.getName() : "Guest";
@@ -50,11 +50,14 @@ public class custOption extends JFrame {
         getContentPane().add(lblName);
 
         // View Restaurant Button
+        
         btnViewRest.addActionListener(new ActionListener() {
+        	@Override
             public void actionPerformed(ActionEvent e) {
                 new selectPicture(db).setVisible(true);
                 dispose();
             }
+        	
         });
 
         // View Reserve Button

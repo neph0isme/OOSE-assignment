@@ -33,6 +33,7 @@ public class CustomerLogin extends JFrame {
 	 */
 	public CustomerLogin() {
 		
+		this.db = new database();
 		setTitle("Customer Login");
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

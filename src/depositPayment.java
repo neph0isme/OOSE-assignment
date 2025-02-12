@@ -7,7 +7,7 @@ public class depositPayment extends JFrame {
 
     public depositPayment(Reservation reservation, database db) {
         this.reservation = reservation;
-        this.db = db;
+        this.db = new database();
 
         setBackground(new Color(128, 255, 255));
         setTitle("Deposit Payment");
