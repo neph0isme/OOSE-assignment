@@ -4,6 +4,7 @@ import javax.swing.*;
 public class cancelReserve extends JFrame {
 
     public cancelReserve() {
+    	getContentPane().setBackground(new Color(128, 255, 255));
         setTitle("Cancel Reservation");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(600, 400); // Set the size of the window
