@@ -6,11 +6,13 @@ import javax.swing.*;
 
 public class rateReserve extends JFrame {
 	
-	private Customer customer;
-	private database db = new database();
+	private static Customer customer;
+	private static database db = new database();
+	private Customer loggedInCustomer;
 	
-    public rateReserve() {
-    	
+    public rateReserve(Customer customer, database db) {
+    	this.loggedInCustomer = customer;
+    	this.db = db;
     	
     	getContentPane().setBackground(new Color(128, 255, 255));
     	
@@ -78,7 +80,9 @@ public class rateReserve extends JFrame {
         });
     }
     
-    @Override
+    
+
+	@Override
     public void setVisible(boolean b) {
         super.setVisible(b);
     }
@@ -86,7 +90,7 @@ public class rateReserve extends JFrame {
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> {
             try {
-                rateReserve frame = new rateReserve();
+                rateReserve frame = new rateReserve(customer, db);
                 frame.setVisible(true);
             } catch (Exception e) {
                 e.printStackTrace();

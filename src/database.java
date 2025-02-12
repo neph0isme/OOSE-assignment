@@ -155,10 +155,13 @@ public class database {
 	    }
 
 	    for (Reservation r : reservations) {
+	        System.out.println("Stored reservation email: " + r.getCustEmail()); // Debugging
+
 	        if (r.getCustEmail().equals(loggedInCustomer.getEmail())) {
 	            customerReservations.add(r);
 	        }
 	    }
+	    
 	    return customerReservations;
 	}
     

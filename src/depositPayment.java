@@ -84,6 +84,14 @@ public class depositPayment extends JFrame {
             JOptionPane.showMessageDialog(this, "Reservation confirmed!", "Success", JOptionPane.INFORMATION_MESSAGE);
             new custOption(db.getCustomerByUsername(reservation.getCustName()), db).setVisible(true);
             dispose();
+            
+            //test print database reservation list
+            db.addReservation(reservation);
+            System.out.println("Reservations after adding:");
+            for (Reservation r : db.getReservations()) {
+                System.out.println(r.getReserveID() + " - " + r.getCustEmail());
+            }
+            
         });
 
         setLocationRelativeTo(null);
