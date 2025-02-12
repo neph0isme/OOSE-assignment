@@ -11,14 +11,14 @@ public class selectPicture extends JFrame {
         getContentPane().setLayout(null);
 
         // Load and resize the first image
-        ImageIcon originalIcon1 = new ImageIcon("C:\\Users\\ASUS\\OneDrive - Universiti Kebangsaan Malaysia\\Pictures\\PASTA GUI.png");
+        ImageIcon originalIcon1 = new ImageIcon("picture\\PASTA GUI.png");
         Image img1 = originalIcon1.getImage().getScaledInstance(294, 100, Image.SCALE_SMOOTH);
         JLabel lblNewLabel = new JLabel(new ImageIcon(img1));
         lblNewLabel.setBounds(40, 108, 294, 100);
         getContentPane().add(lblNewLabel);
 
         // Load and resize the second image
-        ImageIcon originalIcon2 = new ImageIcon("C:\\Users\\ASUS\\OneDrive - Universiti Kebangsaan Malaysia\\Pictures\\sushii.png");
+        ImageIcon originalIcon2 = new ImageIcon("picture\\sushii.png");
         Image img2 = originalIcon2.getImage().getScaledInstance(294, 100, Image.SCALE_SMOOTH);
         JLabel lblNewLabel_1 = new JLabel(new ImageIcon(img2));
         lblNewLabel_1.setBounds(40, 244, 294, 100);
