@@ -76,7 +76,7 @@ public class viewReserve extends JFrame {
         btnRate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new rateReserve().setVisible(true);
+                new rateReserve(customer, db).setVisible(true);
                 dispose();
             }
         });
