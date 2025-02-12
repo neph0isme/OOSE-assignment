@@ -20,7 +20,9 @@ import javax.swing.JButton;
 
 public class selectPicture extends JFrame {
     
-    private Reservation reservation;
+    
+	private static final long serialVersionUID = 1L;
+	private Reservation reservation;
 	private database db;
 
     public selectPicture(database db) {
