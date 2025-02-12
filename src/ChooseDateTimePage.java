@@ -112,9 +112,19 @@ public class ChooseDateTimePage extends JFrame {
                 reservation.setEndTime(selectedEndTime);
                 reservation.setDate(selectedDate);
 
+                // Add reservation to the database
+                db.addReservation(reservation);
+
+                // DEBUGGING: Print reservations after adding
+                System.out.println("Reservations after adding:");
+                for (Reservation r : db.getReservations()) {
+                    System.out.println(r.getReserveID() + " - " + r.getCustEmail() + " - " + r.getDate());
+                }
+                
                 // Proceed to next page (PaxPage)
                 new PaxPage(reservation, db).setVisible(true);
                 dispose(); // Close current window
+                
             } else {
                 // Handle the case where reservation is null
                 JOptionPane.showMessageDialog(this, "Reservation is not initialized.");

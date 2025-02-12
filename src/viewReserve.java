@@ -8,9 +8,10 @@ import java.util.ArrayList;
 public class viewReserve extends JFrame {
 	
     private database db;
-    private DefaultTableModel tableModel;
-    private JTable bookingTable;
-    private Customer loggedInCustomer;
+    //private DefaultTableModel model;
+    private JTable reservationTable;
+	private Customer loggedInCustomer;
+    
 
     public viewReserve(Customer customer, database db) {
         this.loggedInCustomer = customer;
@@ -46,10 +47,9 @@ public class viewReserve extends JFrame {
 
         // Column names for the table
         String[] columnNames = {"Reservation ID", "Restaurant ID", "Pax", "Date", "Start Time", "End Time", "Status"};
-        tableModel = new DefaultTableModel(columnNames, 0);
-        bookingTable = new JTable(tableModel);
-
-        JScrollPane scrollPane = new JScrollPane(bookingTable);
+        DefaultTableModel model = new DefaultTableModel(columnNames, 0);
+        reservationTable = new JTable(model);
+        JScrollPane scrollPane = new JScrollPane(reservationTable);
         scrollPane.setBounds(59, 54, 468, 180); // Adjusted bounds to center the table
         getContentPane().add(scrollPane);
 
@@ -89,12 +89,24 @@ public class viewReserve extends JFrame {
             }
         });
     }
+    
+    
 
     // Method to load reservations for the logged-in customer
     private void loadReservations() {
         
     	ArrayList<Reservation> reservations = db.getReservationsForCustomer(loggedInCustomer);
         
+    	// DEBUGGING: Print reservations fetched for the customer
+    	System.out.println("Reservations for customer: " + loggedInCustomer.getEmail());
+    	for (Reservation r : reservations) {
+    	    System.out.println(r.getReserveID() + " - " + r.getCustEmail() + " - " + r.getDate());
+    	}
+    	
+    	// Update Table
+        DefaultTableModel model = (DefaultTableModel) reservationTable.getModel();
+        model.setRowCount(0);
+    	
     	for (Reservation r : reservations) {
             if (r.getCustEmail().equals(loggedInCustomer.getEmail())) {
                 Object[] rowData = {
@@ -106,7 +118,7 @@ public class viewReserve extends JFrame {
                         r.getEndTime(),
                         r.isReserveStatus() ? "Confirmed" : "Pending"
                 };
-                tableModel.addRow(rowData);
+                model.addRow(rowData);
             }
         }
     }
