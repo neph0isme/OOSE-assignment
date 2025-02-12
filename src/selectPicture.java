@@ -109,11 +109,11 @@ public class selectPicture extends JFrame {
     }
 }
 
-
+/*
 public static void main(String[] args) {
         database db = new database(); // Create a single instance of the database
         SwingUtilities.invokeLater(() -> {
             new selectPicture(db).setVisible(true); // Pass the database instance
         });
-}
+} */
 

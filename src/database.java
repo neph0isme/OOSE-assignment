@@ -135,7 +135,19 @@ public class database {
         }
         return null; // Return null if not found
     }
+    
+    public void updateReservation(Reservation updatedReservation) {
+        for (int i = 0; i < reservations.size(); i++) {
+            if (reservations.get(i).getReserveID().equals(updatedReservation.getReserveID())) {
+                reservations.set(i, updatedReservation); // Replace old reservation with updated one
+                break;
+            }
+        }
+    }
+    
 }
+
+
 
 
 

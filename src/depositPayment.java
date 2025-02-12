@@ -1,12 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
 
 public class depositPayment extends JFrame {
     private Reservation reservation;
     private database db;
 
-    public depositPayment(Reservation reservation, database db) { // ✅ Add constructor with parameters
+    public depositPayment(Reservation reservation, database db) {
         this.reservation = reservation;
         this.db = db;
 
@@ -56,31 +55,45 @@ public class depositPayment extends JFrame {
         // ----------------- Action Listeners -----------------
         final String[] selectedPaymentMethod = {null};
 
+        // ✅ When payment is made, update reservation and enable "Done" button
         onlineBankingButton.addActionListener(e -> {
             String[] banks = {"Maybank", "CIMB", "Public Bank", "RHB", "Hong Leong Bank", "AmBank", "UOB Malaysia", "Bank Rakyat"};
             handleSelection("Select your bank:", "Online Banking", banks, selectedPaymentMethod, doneButton);
+            updateReservationStatus();
         });
 
         eWalletButton.addActionListener(e -> {
             String[] eWallets = {"Touch 'n Go eWallet", "Maybank eWallet", "Boost", "GrabPay", "bigpay"};
             handleSelection("Select your E-Wallet:", "E-Wallet Payment", eWallets, selectedPaymentMethod, doneButton);
+            updateReservationStatus();
         });
 
-        cardButton.addActionListener(e -> handleCardPayment(selectedPaymentMethod, doneButton));
+        cardButton.addActionListener(e -> {
+            handleCardPayment(selectedPaymentMethod, doneButton);
+            updateReservationStatus();
+        });
 
+        // ✅ Back button returns to PaxPage
         backButton.addActionListener(e -> {
-            new PaxPage(reservation, db).setVisible(true); // ✅ Correctly pass reservation & db
+            new PaxPage(reservation, db).setVisible(true);
             dispose();
         });
 
+        // ✅ Done button saves reservation and moves to customer options
         doneButton.addActionListener(e -> {
-            JOptionPane.showMessageDialog(this, "Reservation Details - Customer information has been saved.", "Reservation Confirmation", JOptionPane.INFORMATION_MESSAGE);
-            new custOption(null).setVisible(true);
+            JOptionPane.showMessageDialog(this, "Reservation confirmed!", "Success", JOptionPane.INFORMATION_MESSAGE);
+            new custOption(db.getCustomerByUsername(reservation.getCustName()), db).setVisible(true);
             dispose();
         });
 
         setLocationRelativeTo(null);
         setVisible(true);
+    }
+
+    // ✅ Update reservation when a payment method is selected
+    private void updateReservationStatus() {
+        reservation.setReserveStatus(true);  // Mark reservation as confirmed
+        db.updateReservation(reservation);   // Persist updated reservation
     }
 
     private void handleSelection(String message, String title, String[] options, String[] selectedPaymentMethod, JButton doneButton) {

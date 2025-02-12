@@ -124,10 +124,11 @@ public class ChooseDateTimePage extends JFrame {
         getContentPane().add(btnNext);
     }
 
+	/*
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
         	Reservation reservation = new Reservation("sample", "RestaurantID", 2, "", "", "", "John Doe", "1234567890", "john@example.com", true);
             new ChooseDateTimePage(reservation, db).setVisible(true);
         });
-    }
+    } */
 }

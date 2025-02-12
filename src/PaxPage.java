@@ -9,14 +9,16 @@ public class PaxPage extends JFrame {
     private JTextField emailField;
     private JButton confirmButton;
     private JButton backButton; 
-    private static database db;
-	private static Reservation reservation;
+    private JSpinner paxSpinner;
+    
+    private database db;
+    private Reservation reservation;
 
     public PaxPage(Reservation reservation, database db) {
-    	setBackground(new Color(128, 255, 255));
-    	this.reservation = reservation;
-        this.db = new database(); 
-
+        this.reservation = reservation; // Ensure reservation is stored
+        this.db = db; // Ensure db is stored
+        
+        setBackground(new Color(128, 255, 255));
         setTitle("Pax Page");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         getContentPane().setLayout(new BorderLayout());
@@ -29,6 +31,7 @@ public class PaxPage extends JFrame {
         
         JPanel formPanel = new JPanel(new GridLayout(5, 2, 5, 5)); 
         formPanel.setBackground(new Color(128, 255, 255));
+        
         JLabel paxLabel = new JLabel("Choose pax: ");
         JLabel nameLabel = new JLabel("Name: ");
         nameField = new JTextField(20);
@@ -38,12 +41,11 @@ public class PaxPage extends JFrame {
         emailField = new JTextField(20);
         
         confirmButton = new JButton("Confirm");
-        confirmButton.setPreferredSize(new Dimension(100, 25)); // Set preferred size for the confirm button
+        confirmButton.setPreferredSize(new Dimension(100, 25));
 
         formPanel.add(paxLabel);
-        
-        JSpinner spinner = new JSpinner(new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1));
-        formPanel.add(spinner);
+        paxSpinner = new JSpinner(new SpinnerNumberModel(1, 1, 100, 1)); // Minimum pax = 1
+        formPanel.add(paxSpinner);
         formPanel.add(nameLabel);
         formPanel.add(nameField);
         formPanel.add(phoneLabel);
@@ -51,30 +53,32 @@ public class PaxPage extends JFrame {
         formPanel.add(emailLabel);
         formPanel.add(emailField);
         
-        // Create a panel for the confirm button
+        // Panel for confirm button
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         buttonPanel.setBackground(new Color(128, 255, 255));
         buttonPanel.add(confirmButton);
         formPanel.add(new JLabel()); // Empty label for spacing
-        formPanel.add(buttonPanel); // Add button panel to form
+        formPanel.add(buttonPanel);
 
         getContentPane().add(backButtonPanel, BorderLayout.NORTH); 
         getContentPane().add(formPanel, BorderLayout.CENTER); 
         
+        // ✅ Confirm button updates reservation details before proceeding
         confirmButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            	PaxPage.this.dispose();
+                updateReservationDetails();
+                PaxPage.this.dispose();
                 new depositPayment(reservation, db).setVisible(true);
             }
         });
 
-        // Action listener for the back button
+        // ✅ Back button returns to ChooseDateTimePage
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 PaxPage.this.dispose();
-                new ChooseDateTimePage(reservation, db).setVisible(true); // Assuming this class exists
+                new ChooseDateTimePage(reservation, db).setVisible(true);
             }
         });
 
@@ -82,6 +86,29 @@ public class PaxPage extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
     }
-    
-    
+
+    private void updateReservationDetails() {
+        // Get user inputs
+        int pax = (int) paxSpinner.getValue();
+        String name = nameField.getText().trim();
+        String phone = phoneField.getText().trim();
+        String email = emailField.getText().trim();
+
+        // ✅ Ensure fields are not empty before updating reservation
+        if (name.isEmpty() || phone.isEmpty() || email.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please fill in all fields!", "Missing Information", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // ✅ Update reservation object
+        reservation.setReservePax(pax);
+        reservation.setCustName(name);
+        reservation.setCustPhone(phone);
+        reservation.setCustEmail(email);
+
+        // ✅ Store the updated reservation in the database
+        db.addReservation(reservation);
+
+        JOptionPane.showMessageDialog(this, "Reservation details saved!", "Success", JOptionPane.INFORMATION_MESSAGE);
+    }
 }
