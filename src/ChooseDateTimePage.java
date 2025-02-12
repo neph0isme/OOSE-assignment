@@ -3,7 +3,7 @@ import javax.swing.*;
 import java.awt.event.ActionListener;
 
 public class ChooseDateTimePage extends JFrame {
-    private Reservation reservation;
+    private static Reservation reservation;
     private static database db;
 	
 	public ChooseDateTimePage(Reservation reservation, database db) {
@@ -102,7 +102,7 @@ public class ChooseDateTimePage extends JFrame {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            new ChooseDateTimePage(db).setVisible(true);
+            new ChooseDateTimePage(reservation, db).setVisible(true);
         });
     }
 }

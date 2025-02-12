@@ -5,7 +5,8 @@ import java.awt.event.ActionListener;
 
 public class custOption extends JFrame {
 	
-	 private CustomerController customerController;
+	private CustomerController customerController;
+	private database db = new database();
 	
     public custOption(Customer customer) {
     	
@@ -40,7 +41,7 @@ public class custOption extends JFrame {
         btnViewRest.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new selectPicture(null).setVisible(true);
+                new selectPicture(db).setVisible(true);
                 dispose();
             }
         });

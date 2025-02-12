@@ -2,7 +2,7 @@ import java.awt.*;
 import javax.swing.*;
 
 public class selectPicture extends JFrame {
-    private static database db = new database();
+    private database db = new database();
 
     public selectPicture(database db) {
         this.db = db; // Pass the database instance
@@ -35,7 +35,7 @@ public class selectPicture extends JFrame {
         getContentPane().add(btnRest1);
 
         btnRest1.addActionListener(e -> {
-            Reservation newReservation = new Reservation(generateNewReservationID(), "R001", 0, "", "", "", false);
+            Reservation newReservation = new Reservation(generateNewReservationID(), "R001", 0, "", "", "", "", "", "", false);
             new ChooseDateTimePage(newReservation, db).setVisible(true);
             dispose();
         });
@@ -46,7 +46,7 @@ public class selectPicture extends JFrame {
         getContentPane().add(btnRest2);
 
         btnRest2.addActionListener(e -> {
-            Reservation newReservation = new Reservation(generateNewReservationID(), "R002", 0, "", "", "", false);
+            Reservation newReservation = new Reservation(generateNewReservationID(), "R002", 0, "", "", "", "", "", "", false);
             new ChooseDateTimePage(newReservation, db).setVisible(true);
             dispose();
         });
@@ -59,7 +59,18 @@ public class selectPicture extends JFrame {
     }
 
     private String generateNewReservationID() {
-        int nextId = db.getReservations().size() + 1; // Get next ID
-        return String.format("B%03d", nextId); // Format as B001, B002, B003...
+    	
+    	int maxID=0;
+    	
+    	 for (Reservation r : db.getReservations()) {
+    	        String id = r.getReserveID().substring(1); // for remove 'B' prefix
+    	        int num = Integer.parseInt(id);
+    	        if (num > maxID) {
+    	            maxID = num;
+    	        }
+    	    }
+    	    
+    	    int nextId = maxID + 1;
+    	    return String.format("B%03d", nextId);
     }
 }
