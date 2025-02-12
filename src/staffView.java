@@ -8,6 +8,7 @@ public class staffView extends JFrame {
 	private database db;
 	
 	public staffView(database db, String staffID) {
+		getContentPane().setBackground(new Color(255, 128, 192));
 		
 		this.db = db; //simpan data ref
 	    this.staffID = staffID;
