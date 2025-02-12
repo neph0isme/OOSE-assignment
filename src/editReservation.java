@@ -10,6 +10,8 @@ public class editReservation extends JFrame{
 	private JTextField textName;
 	private JTextField textNumber;
 	private JTextField textField_1;
+	private Customer customer;
+	private database db = new database();
 	
 	public editReservation() {
 		getContentPane().setBackground(new Color(128, 255, 255));
@@ -77,14 +79,14 @@ public class editReservation extends JFrame{
 	    
 	    btnNewButton.addActionListener(e -> {
 	    	JOptionPane.showMessageDialog(this, "Edited Successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
-            new viewReserve(null, null).setVisible(true);
+            new viewReserve(customer, db).setVisible(true);
             dispose();
         });
 	    
 	    btnBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new viewReserve(null, null).setVisible(true);
+                new viewReserve(customer, db).setVisible(true);
                 dispose();
             }
         });
