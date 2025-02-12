@@ -77,14 +77,14 @@ public class editReservation extends JFrame{
 	    
 	    btnNewButton.addActionListener(e -> {
 	    	JOptionPane.showMessageDialog(this, "Edited Successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
-            new viewReserve(null).setVisible(true);
+            new viewReserve(null, null).setVisible(true);
             dispose();
         });
 	    
 	    btnBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new viewReserve(null).setVisible(true);
+                new viewReserve(null, null).setVisible(true);
                 dispose();
             }
         });

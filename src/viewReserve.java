@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class viewReserve extends JFrame {
+	
     private database db;
     private DefaultTableModel tableModel;
     private JTable bookingTable;
@@ -91,8 +92,10 @@ public class viewReserve extends JFrame {
 
     // Method to load reservations for the logged-in customer
     private void loadReservations() {
-        ArrayList<Reservation> reservations = db.getReservations();
-        for (Reservation r : reservations) {
+        
+    	ArrayList<Reservation> reservations = db.getReservationsForCustomer(loggedInCustomer);
+        
+    	for (Reservation r : reservations) {
             if (r.getCustEmail().equals(loggedInCustomer.getEmail())) {
                 Object[] rowData = {
                         r.getReserveID(),

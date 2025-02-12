@@ -6,7 +6,12 @@ import javax.swing.*;
 
 public class rateReserve extends JFrame {
 	
+	private Customer customer;
+	private database db = new database();
+	
     public rateReserve() {
+    	
+    	
     	getContentPane().setBackground(new Color(128, 255, 255));
     	
         setTitle("Reservation Rating");
@@ -68,9 +73,11 @@ public class rateReserve extends JFrame {
         getContentPane().add(btnBack);
         
         btnBack.addActionListener(new ActionListener() {
-            @Override
+            
+
+			@Override
             public void actionPerformed(ActionEvent e) {
-				new viewReserve(null).setVisible(true);
+				new viewReserve(customer, db).setVisible(true);
                 dispose();
             }
         });

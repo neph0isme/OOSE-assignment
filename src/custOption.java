@@ -32,7 +32,7 @@ public class custOption extends JFrame {
 
 	        // Existing "View Reservation" button
 	        JButton btnViewReservation = new JButton("View Reservation");
-	        btnViewReservation.setBounds(100, 50, 200, 30);
+	        btnViewReservation.setBounds(67, 166, 158, 23);
 	        getContentPane().add(btnViewReservation);
 
 	        // Add action listener to the existing button
@@ -58,10 +58,6 @@ public class custOption extends JFrame {
         JButton btnViewRest = new JButton("View Restaurant");
         btnViewRest.setBounds(67, 119, 158, 23);
         getContentPane().add(btnViewRest);
-
-        JButton btnViewReserve = new JButton("View Reserve");
-        btnViewReserve.setBounds(67, 174, 158, 23);
-        getContentPane().add(btnViewReserve);
         
         JLabel lblText = new JLabel("Welcome,");
         lblText.setHorizontalAlignment(SwingConstants.TRAILING);

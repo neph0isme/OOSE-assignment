@@ -37,7 +37,7 @@ public class cancelReserve extends JFrame {
 
         btnNo.addActionListener(e -> {
             dispose(); // Close the current window
-            new viewReserve(null).setVisible(true); // Navigate back to the view reservation screen
+            new viewReserve(null, null).setVisible(true); // Navigate back to the view reservation screen
         });
     }
 

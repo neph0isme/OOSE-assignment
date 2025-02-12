@@ -144,6 +144,23 @@ public class database {
             }
         }
     }
+
+	public ArrayList<Reservation> getReservationsForCustomer(Customer loggedInCustomer) {
+		 
+		ArrayList<Reservation> customerReservations = new ArrayList<>();
+	    
+	    if (loggedInCustomer == null) {
+	        System.out.println("Error: loggedInCustomer is null.");
+	        return customerReservations;
+	    }
+
+	    for (Reservation r : reservations) {
+	        if (r.getCustEmail().equals(loggedInCustomer.getEmail())) {
+	            customerReservations.add(r);
+	        }
+	    }
+	    return customerReservations;
+	}
     
 }
 
