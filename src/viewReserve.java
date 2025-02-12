@@ -60,7 +60,7 @@ public class viewReserve extends JFrame {
         btnCancel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new cancelReserve().setVisible(true);
+                new cancelReserve(customer, db).setVisible(true);
                 dispose();
             }
         });

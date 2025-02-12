@@ -3,7 +3,16 @@ import javax.swing.*;
 
 public class cancelReserve extends JFrame {
 
-    public cancelReserve() {
+	private static Customer customer;
+	private Customer loggedInCustomer;
+	private static database db;
+	
+    public cancelReserve(Customer customer, database db) {
+    	
+    	this.loggedInCustomer = customer;
+    	this.db = db;
+    	
+    	
     	getContentPane().setBackground(new Color(128, 255, 255));
         setTitle("Cancel Reservation");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -37,7 +46,7 @@ public class cancelReserve extends JFrame {
 
         btnNo.addActionListener(e -> {
             dispose(); // Close the current window
-            new viewReserve(null, null).setVisible(true); // Navigate back to the view reservation screen
+            new viewReserve(loggedInCustomer, db).setVisible(true); // Navigate back to the view reservation screen
         });
     }
 
@@ -45,7 +54,7 @@ public class cancelReserve extends JFrame {
         // Create and display the cancelReserve window
         EventQueue.invokeLater(() -> {
             try {
-                cancelReserve frame = new cancelReserve();
+                cancelReserve frame = new cancelReserve(customer, db);
                 frame.setVisible(true); // Display the window
             } catch (Exception e) {
                 e.printStackTrace();
