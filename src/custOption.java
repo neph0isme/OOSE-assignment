@@ -52,7 +52,7 @@ public class custOption extends JFrame {
 
 			@Override
             public void actionPerformed(ActionEvent e) {
-                new viewReserve(customerController, customer).setVisible(true);
+                new viewReserve(customer).setVisible(true);
                 dispose();
             }
         });

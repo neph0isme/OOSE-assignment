@@ -6,15 +6,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class viewReserve extends JFrame {
-	private static CustomerController customerController;
+	//private static CustomerController customerController;
 	private database db = new database();
 	private DefaultTableModel tableModel;
 	private JTable bookingTable;
 	private static Customer loggedInCustomer;
 	
-    public viewReserve(CustomerController customerController, Customer customer) {
+    public viewReserve(Customer customer) {
     	
-    	this.customerController = customerController;
+    	
     	this.loggedInCustomer = customer;
     	
         setTitle("View Reservation");
@@ -91,7 +91,7 @@ public class viewReserve extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    viewReserve frame = new viewReserve(customerController, loggedInCustomer);
+                    viewReserve frame = new viewReserve(loggedInCustomer);
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
