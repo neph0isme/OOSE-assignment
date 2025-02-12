@@ -12,6 +12,7 @@ public class editReservation extends JFrame{
 	private JTextField textField_1;
 	
 	public editReservation() {
+		getContentPane().setBackground(new Color(128, 255, 255));
 		setTitle("Edit Reservation Details");
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    setSize(600, 265);
@@ -70,7 +71,7 @@ public class editReservation extends JFrame{
 	    textField_1.setBounds(218, 130, 352, 20);
 	    getContentPane().add(textField_1);
 	    
-	    JButton btnNewButton = new JButton("New button");
+	    JButton btnNewButton = new JButton("Done");
 	    btnNewButton.setBounds(481, 185, 89, 23);
 	    getContentPane().add(btnNewButton);
 	    
