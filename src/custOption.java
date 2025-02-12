@@ -17,10 +17,33 @@ import javax.swing.JButton;
 public class custOption extends JFrame {
 	
 	//private CustomerController customerController;
-	private static database db;
-	
-    public custOption(Customer customer, database db) {
-    	this.db = new database();
+	 private Customer loggedInCustomer;
+	 private database db;
+
+	    public custOption(Customer customer, database db) {
+	        this.loggedInCustomer = customer;
+	        this.db = db;
+
+	        setTitle("Customer Options");
+	        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	        setSize(400, 300);
+	        setLocationRelativeTo(null);
+	        getContentPane().setLayout(null);
+
+	        // Existing "View Reservation" button
+	        JButton btnViewReservation = new JButton("View Reservation");
+	        btnViewReservation.setBounds(100, 50, 200, 30);
+	        getContentPane().add(btnViewReservation);
+
+	        // Add action listener to the existing button
+	        btnViewReservation.addActionListener(new ActionListener() {
+	            @Override
+	            public void actionPerformed(ActionEvent e) {
+	                // Open the viewReserve frame with the logged-in customer and database
+	                new viewReserve(loggedInCustomer, db).setVisible(true);
+	                dispose(); // Close the current frame
+	            }
+	        });
     	
     	//Customer firstCustomer = customers.isEmpty() ? null : customers.get(0); // Get first customer or null
         //String customerName = (firstCustomer != null) ? firstCustomer.getName() : "Guest";
@@ -60,16 +83,7 @@ public class custOption extends JFrame {
         	
         });
 
-        // View Reserve Button
-        btnViewReserve.addActionListener(new ActionListener() {
-           
-
-			@Override
-            public void actionPerformed(ActionEvent e) {
-                new viewReserve(customer).setVisible(true);
-                dispose();
-            }
-        });
+   
     }
 
 	
