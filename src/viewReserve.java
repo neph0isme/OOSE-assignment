@@ -81,21 +81,8 @@ public class viewReserve extends JFrame {
         btnBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new custOption(loggedInCustomer, db).setVisible(true);
+                new custOption(loggedInCustomer,db).setVisible(true);
                 dispose();
-            }
-        });
-    }
-
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    viewReserve frame = new viewReserve(loggedInCustomer);
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
             }
         });
     }
