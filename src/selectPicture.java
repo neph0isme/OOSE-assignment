@@ -21,17 +21,17 @@ public class selectPicture extends JFrame {
         ImageIcon originalIcon2 = new ImageIcon("C:\\Users\\ASUS\\OneDrive - Universiti Kebangsaan Malaysia\\Pictures\\sushii.png");
         Image img2 = originalIcon2.getImage().getScaledInstance(294, 100, Image.SCALE_SMOOTH);
         JLabel lblNewLabel_1 = new JLabel(new ImageIcon(img2));
-        lblNewLabel_1.setBounds(40, 213, 294, 100);
+        lblNewLabel_1.setBounds(40, 244, 294, 100);
         getContentPane().add(lblNewLabel_1);
 
         JLabel lblNewLabel_2 = new JLabel("CHOOSE YOUR RESTAURANT");
-        lblNewLabel_2.setBounds(260, 27, 219, 43);
+        lblNewLabel_2.setBounds(241, 27, 219, 43);
         lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
         getContentPane().add(lblNewLabel_2);
 
         // Button for first restaurant
         JButton btnRest1 = new JButton("Choose");
-        btnRest1.setBounds(486, 153, 85, 21);
+        btnRest1.setBounds(486, 147, 85, 21);
         getContentPane().add(btnRest1);
 
         btnRest1.addActionListener(e -> {
@@ -42,8 +42,28 @@ public class selectPicture extends JFrame {
 
         // Button for second restaurant
         JButton btnRest2 = new JButton("Choose");
-        btnRest2.setBounds(486, 246, 85, 21);
+        btnRest2.setBounds(486, 281, 85, 21);
         getContentPane().add(btnRest2);
+        
+        JLabel lblNewLabel_3 = new JLabel("Rating: 4.5 star");
+        lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        lblNewLabel_3.setBounds(361, 131, 118, 21);
+        getContentPane().add(lblNewLabel_3);
+        
+        JLabel lblNewLabel_3_1 = new JLabel("Rating: 4.3 star");
+        lblNewLabel_3_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        lblNewLabel_3_1.setBounds(361, 270, 118, 21);
+        getContentPane().add(lblNewLabel_3_1);
+        
+        JLabel lblNewLabel_3_2 = new JLabel("Cuisine: Italian");
+        lblNewLabel_3_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        lblNewLabel_3_2.setBounds(361, 162, 118, 21);
+        getContentPane().add(lblNewLabel_3_2);
+        
+        JLabel lblNewLabel_3_3 = new JLabel("Cuisine: Japanese");
+        lblNewLabel_3_3.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        lblNewLabel_3_3.setBounds(361, 301, 118, 21);
+        getContentPane().add(lblNewLabel_3_3);
 
         btnRest2.addActionListener(e -> {
             Reservation newReservation = new Reservation(generateNewReservationID(), "R002", 0, "", "", "", false);
