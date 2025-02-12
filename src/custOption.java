@@ -40,7 +40,7 @@ public class custOption extends JFrame {
         btnViewRest.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new selectPicture().setVisible(true);
+                new selectPicture(null).setVisible(true);
                 dispose();
             }
         });

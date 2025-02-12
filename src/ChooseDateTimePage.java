@@ -3,7 +3,13 @@ import javax.swing.*;
 import java.awt.event.ActionListener;
 
 public class ChooseDateTimePage extends JFrame {
-    public ChooseDateTimePage() {
+    private Reservation reservation;
+    private static database db;
+	
+	public ChooseDateTimePage(Reservation reservation, database db) {
+    	this.reservation = reservation;
+    	this.db = db;
+    	
         getContentPane().setBackground(new Color(128, 255, 255));
         setTitle("Choose Date & Time");
         setSize(600, 400);
@@ -15,7 +21,7 @@ public class ChooseDateTimePage extends JFrame {
         JButton btnBack = new JButton("Back");
         btnBack.setBounds(10, 10, 83, 21);
         btnBack.addActionListener(e -> {
-            new selectPicture().setVisible(true); // Open selectPicture GUI
+            new selectPicture(db).setVisible(true); // Open selectPicture GUI
             dispose(); // Close current window
         });
         getContentPane().add(btnBack);
@@ -96,7 +102,7 @@ public class ChooseDateTimePage extends JFrame {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            new ChooseDateTimePage().setVisible(true);
+            new ChooseDateTimePage(db).setVisible(true);
         });
     }
 }

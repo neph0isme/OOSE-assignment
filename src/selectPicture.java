@@ -2,72 +2,64 @@ import java.awt.*;
 import javax.swing.*;
 
 public class selectPicture extends JFrame {
-    private JTextField txtRating;
-    private JTextField txtRatingCuisine;
+    private static database db = new database();
 
-    public selectPicture() {
+    public selectPicture(database db) {
+        this.db = db; // Pass the database instance
+
         getContentPane().setBackground(new Color(128, 255, 255));
         getContentPane().setLayout(null);
 
         // Load and resize the first image
         ImageIcon originalIcon1 = new ImageIcon("C:\\Users\\ASUS\\OneDrive - Universiti Kebangsaan Malaysia\\Pictures\\PASTA GUI.png");
-        Image img1 = originalIcon1.getImage();
-        Image resizedImg1 = img1.getScaledInstance(294, 100, Image.SCALE_SMOOTH);
-        ImageIcon resizedIcon1 = new ImageIcon(resizedImg1);
-
-        JLabel lblNewLabel = new JLabel(resizedIcon1);
+        Image img1 = originalIcon1.getImage().getScaledInstance(294, 100, Image.SCALE_SMOOTH);
+        JLabel lblNewLabel = new JLabel(new ImageIcon(img1));
         lblNewLabel.setBounds(40, 108, 294, 100);
         getContentPane().add(lblNewLabel);
-        setLocationRelativeTo(null);
 
         // Load and resize the second image
-        ImageIcon originalIcon2 = new ImageIcon("C:\\Users\\ASUS\\OneDrive - Universiti Kebangsaan Malaysia\\Pictures\\sushii.png"); // Change path
-        Image img2 = originalIcon2.getImage();
-        Image resizedImg2 = img2.getScaledInstance(294, 100, Image.SCALE_SMOOTH);
-        ImageIcon resizedIcon2 = new ImageIcon(resizedImg2);
-
-        JLabel lblNewLabel_1 = new JLabel(resizedIcon2);
+        ImageIcon originalIcon2 = new ImageIcon("C:\\Users\\ASUS\\OneDrive - Universiti Kebangsaan Malaysia\\Pictures\\sushii.png");
+        Image img2 = originalIcon2.getImage().getScaledInstance(294, 100, Image.SCALE_SMOOTH);
+        JLabel lblNewLabel_1 = new JLabel(new ImageIcon(img2));
         lblNewLabel_1.setBounds(40, 213, 294, 100);
         getContentPane().add(lblNewLabel_1);
 
-        txtRating = new JTextField("Rating:\n\n\nCuisine:");
-        txtRating.setBounds(356, 108, 120, 87);
-        getContentPane().add(txtRating);
-        txtRating.setColumns(10);
-
-        txtRatingCuisine = new JTextField("Rating:\n\n\nCuisine:");
-        txtRatingCuisine.setBounds(356, 213, 120, 87);
-        getContentPane().add(txtRatingCuisine);
-        txtRatingCuisine.setColumns(10);
-
         JLabel lblNewLabel_2 = new JLabel("CHOOSE YOUR RESTAURANT");
-        lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
         lblNewLabel_2.setBounds(260, 27, 219, 43);
+        lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
         getContentPane().add(lblNewLabel_2);
 
         // Button for first restaurant
-        JButton btnNewButton = new JButton("Choose");
-        btnNewButton.setBounds(486, 153, 85, 21);
-        getContentPane().add(btnNewButton);
+        JButton btnRest1 = new JButton("Choose");
+        btnRest1.setBounds(486, 153, 85, 21);
+        getContentPane().add(btnRest1);
 
-        btnNewButton.addActionListener(e -> {
-            new ChooseDateTimePage().setVisible(true);
+        btnRest1.addActionListener(e -> {
+            Reservation newReservation = new Reservation(generateNewReservationID(), "R001", 0, "", "", "", false);
+            new ChooseDateTimePage(newReservation, db).setVisible(true);
             dispose();
         });
 
         // Button for second restaurant
-        JButton btnNewButton_1 = new JButton("Choose");
-        btnNewButton_1.setBounds(486, 246, 85, 21);
-        getContentPane().add(btnNewButton_1);
+        JButton btnRest2 = new JButton("Choose");
+        btnRest2.setBounds(486, 246, 85, 21);
+        getContentPane().add(btnRest2);
 
-        btnNewButton_1.addActionListener(e -> {
-            new ChooseDateTimePage().setVisible(true);
+        btnRest2.addActionListener(e -> {
+            Reservation newReservation = new Reservation(generateNewReservationID(), "R002", 0, "", "", "", false);
+            new ChooseDateTimePage(newReservation, db).setVisible(true);
             dispose();
         });
 
         setTitle("Select Picture");
         setSize(650, 451);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
         setVisible(true);
+    }
+
+    private String generateNewReservationID() {
+        int nextId = db.getReservations().size() + 1; // Get next ID
+        return String.format("B%03d", nextId); // Format as B001, B002, B003...
     }
 }
