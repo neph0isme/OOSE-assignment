@@ -16,7 +16,7 @@ public class rateReserve extends JFrame {
     	
         setTitle("Reservation Rating");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(220, 426); // Set the size of the window
+        setSize(220, 364); // Set the size of the window
         setLocationRelativeTo(null); // Center the window on the screen
         getContentPane().setLayout(null);
         
@@ -35,41 +35,36 @@ public class rateReserve extends JFrame {
         
         JLabel lblNewLabel_1 = new JLabel("Rate from 1 to 5 Star");
         lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-        lblNewLabel_1.setBounds(6, 148, 192, 38);
+        lblNewLabel_1.setBounds(11, 82, 192, 38);
         getContentPane().add(lblNewLabel_1);
         
         JRadioButton rdbtnOne = new JRadioButton("1 STAR");
         rdbtnOne.setHorizontalAlignment(SwingConstants.CENTER);
-        rdbtnOne.setBounds(6, 193, 192, 23);
+        rdbtnOne.setBounds(10, 134, 192, 23);
         getContentPane().add(rdbtnOne);
         
         JRadioButton rdbtnTwo = new JRadioButton("2 STAR");
         rdbtnTwo.setHorizontalAlignment(SwingConstants.CENTER);
-        rdbtnTwo.setBounds(6, 219, 192, 23);
+        rdbtnTwo.setBounds(10, 160, 192, 23);
         getContentPane().add(rdbtnTwo);
         
         JRadioButton rdbtnThree = new JRadioButton("3 STAR");
         rdbtnThree.setHorizontalAlignment(SwingConstants.CENTER);
-        rdbtnThree.setBounds(6, 245, 192, 23);
+        rdbtnThree.setBounds(10, 186, 192, 23);
         getContentPane().add(rdbtnThree);
         
         JRadioButton rdbtnFour = new JRadioButton("4 STAR");
         rdbtnFour.setHorizontalAlignment(SwingConstants.CENTER);
-        rdbtnFour.setBounds(6, 271, 192, 23);
+        rdbtnFour.setBounds(10, 212, 192, 23);
         getContentPane().add(rdbtnFour);
         
         JRadioButton rdbtnFive = new JRadioButton("5 STAR");
         rdbtnFive.setHorizontalAlignment(SwingConstants.CENTER);
-        rdbtnFive.setBounds(6, 297, 192, 23);
+        rdbtnFive.setBounds(10, 238, 192, 23);
         getContentPane().add(rdbtnFive);
         
-        JLabel lblRestaurantName = new JLabel("New label");
-        lblRestaurantName.setHorizontalAlignment(SwingConstants.CENTER);
-        lblRestaurantName.setBounds(6, 105, 192, 14);
-        getContentPane().add(lblRestaurantName);
-        
         JButton btnBack = new JButton("Back");
-        btnBack.setBounds(60, 353, 89, 23);
+        btnBack.setBounds(64, 294, 89, 23);
         getContentPane().add(btnBack);
         
         btnBack.addActionListener(new ActionListener() {
