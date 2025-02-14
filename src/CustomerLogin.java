@@ -108,21 +108,21 @@ public class CustomerLogin extends JFrame {
 		
 		
 		//login button
-		JButton btnlogin = new JButton("LOGIN");
-		btnlogin.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnlogin.setBounds(283, 266, 89, 23);
-		contentPane.add(btnlogin);
+		JButton loginButton = new JButton("LOGIN");
+		loginButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		loginButton.setBounds(283, 266, 89, 23);
+		contentPane.add(loginButton);
 		
 		JButton btnBack = new JButton("back");
 		btnBack.setBounds(283, 407, 89, 23);
 		contentPane.add(btnBack);
 		
-		btnlogin.addActionListener(e -> {
+		loginButton.addActionListener(e -> {
             String username = txt_username.getText();
             String password = txt_pass.getText();
-            Customer loggedInCustomer = db.getCustomerByUsername(username);
-            
-            if (db.validateCustomerLogin(username, password)) {
+            Customer loggedInCustomer = db.validateCustomerLogin(username, password);
+            if (loggedInCustomer != null) {
+
                 JOptionPane.showMessageDialog(this, "Login Successful");
                 new custOption(loggedInCustomer, db).setVisible(true);
                 dispose();
@@ -140,20 +140,5 @@ public class CustomerLogin extends JFrame {
         });
 	}
 	
-	/**
-	 * Launch the application.
-	 */
-	/*
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					CustomerLogin frame = new CustomerLogin();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});	
-	} */
+	
 }
